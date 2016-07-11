@@ -1,0 +1,41 @@
+{
+  "name": "onegai",
+  "version": "1.0.0",
+  "description": "Website hỏi đáp về tiếng Nhật và Nhật bản",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://chienkira@github.com/chienkira/onegai.git"
+  },
+  "keywords": [
+    "Q&A",
+    "Japan",
+    "Japanese",
+    "onegai",
+    "angular",
+    "REST"
+  ],
+  "author": "ChienKira <chienhedspi@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-compress": "^0.7.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-cssmin": "^0.9.0",
+    "grunt-contrib-jshint": "~0.6.2",
+    "grunt-contrib-uglify": "~0.3.1",
+    "grunt-contrib-watch": "~0.5.1",
+    "grunt-exec": "~0.4.2",
+    "grunt-git-describe": "^2.3.2",
+    "load-grunt-config": "^0.8.0-beta.1",
+    "time-grunt": "^0.3.1"
+  },
+  "bugs": {
+    "url": "https://github.com/chienkira/onegai/issues"
+  },
+  "homepage": "https://github.com/chienkira/onegai#readme"
+}

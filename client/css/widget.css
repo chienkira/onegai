@@ -1,0 +1,205 @@
+/*USER NAV BADGE*/
+.user-nav-badge  img {
+	float: left;	
+}
+.user-nav-badge  a.dropdown-toggle {
+	float: left;	
+}
+.user-nav-badge  ul.dropdown-menu {
+	margin-left:30px;
+}
+
+
+/*GAMIFICATION-LEADERBOARD*/
+ul.gm-leaderboard {	
+	list-style: none;	
+	padding: 0;
+}
+
+ul.gm-leaderboard li img {
+	display:inline;
+	float: left;
+	margin-right: 5px;
+}	
+
+ul.gm-leaderboard li p {
+	line-height: 10px;
+}
+
+ul.gm-leaderboard li p span.username {
+	font-weight: bold;
+}
+
+/*PHOTO-SINGLE-VIEW*/
+.photo-single-view .row .col-md-8.col-md-offset-2.text-center{
+	background-color:#e6e6e6;
+	padding-left:0px;
+	padding-right:0px;
+}
+.photo-single-view #photo-single-view-image{
+	margin-top:10px;
+	margin-bottom:45px;
+	max-width:470px;
+	width:auto;
+	max-height:470px;
+	height:300px;
+	background-repeat:no-repeat;
+	background-size:contain;
+	background-position:center;
+	margin-left:8px;
+}
+.option-command-button{
+	margin-top:10px;
+	text-align:justify;
+}
+.option-command-button .col-md-8.col-md-offset-2{
+	background-color:#FFFFFF;
+}
+.option-command-button .option-command-bar{
+	height:40px;
+}
+.option-command-button button{
+	height:40px;
+	border-radius:0px;
+	line-height: 3px;
+}
+.option-command-button img{
+	margin-top:15px;
+	margin-bottom:15px;
+}
+.coments-list{
+	margin-top:10px;
+}
+.coments-list img{
+	margin-top:15px;
+	margin-bottom:15px;
+}
+#comment-list .col-md-10.pull-left{
+	text-align:justify;
+	margin-top:8px;
+	margin-left:-15px;	
+}
+#comment-list .col-md-10.pull-left p{
+	text-align:right;
+	font-size: 12px;
+	margin-top:5px;
+}
+#comment-list hr{
+	margin-top:0px;
+	margin-bottom:0px;
+}
+.user-comment-form img{
+	margin-top:15px;
+	margin-bottom:15px;
+}
+#photo-comment-data{
+	margin-top:15px;	
+}
+.user-comment-form button{
+	border-radius:0px;
+	margin-right:15px;
+}
+
+/*PHOTO GALLERY VIEW*/
+.photo-gallery li{
+	display:inline-block;
+	text-align:center;
+	width:170px;
+	background-color:#FFFFFF;
+	padding-top:10px;
+	margin-bottom:10px;
+	height:190px;
+}
+.photo-gallery img{ 
+	display:inline-block;
+	width:150px;
+	height:150px;
+	overflow: hidden;
+}
+.photo-gallery img:hover{ 
+	opacity: 0.4;
+}
+.photo-gallery li p{
+	text-align:center;
+	margin-top:3px;
+}
+
+
+
+/*GAMEFICATION USER LEVEL*/
+.level{
+	background-color: #eeeeee;
+	font-size: 25px;
+	line-height: 50px;
+}
+
+.circle {
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	background-color: red;
+	text-align: center; 
+	margin-left:-27px;
+}
+.circle p{
+	line-height: 50px;
+	font-size: 20px;
+}
+
+
+/*Form settings for signup and additional services */
+input.parsley-success, textarea.parsley-success, select.parsley-success {
+  color: #468847 !important;
+  background-color: #DFF0D8 !important;
+  border: 1px solid #D6E9C6 !important;
+}
+input.parsley-error, textarea.parsley-error, select.parsley-error {
+  color: #B94A48 !important;
+  background-color: #F2DEDE !important;
+  border: 1px solid #EED3D7 !important;
+} 
+
+ul.parsley-error-list{
+	list-style: none;
+	padding-top:5px;
+	padding-left: 0px;
+	color: #B94A48 !important;
+}
+
+/*PHOTO UPLOAD*/
+@charset "UTF-8";
+/*
+ * jQuery File Upload Plugin CSS 1.3.0
+ * https://github.com/blueimp/jQuery-File-Upload
+ *
+ * Copyright 2013, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer;
+}
+
+/* Fixes for IE < 8 */
+@media screen\9 {
+  .fileinput-button input {
+    filter: alpha(opacity=0);
+    font-size: 100%;
+    height: 100%;
+  }
+}

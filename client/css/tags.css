@@ -1,0 +1,36 @@
+.page-description {
+	color: #333;
+	font-size: 120%;
+	line-height: 120%;
+}
+
+.page-description p{
+	margin-bottom: 1em;
+}
+
+.item-multiplier {
+	font-size: 90%;
+	font-weight: normal;
+	margin-right: 4px;
+	color: #999;
+}
+
+.excerpt {
+	font-size: 12px;
+	height: 42px;
+	line-height: 14px;
+	overflow: hidden;
+	margin-bottom: 4px;
+
+}
+
+.tag-container{
+	margin-top: 20px;
+}
+
+.tag-cell {
+	border-bottom: 1px dotted #E0E0E0;
+	padding-bottom: 12px;
+	padding-right: 6px;
+	padding-top: 6px;
+}

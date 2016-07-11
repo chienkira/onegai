@@ -1,0 +1,103 @@
+<div class="row">
+
+  <div class="col-md-9">
+    <div class="row subheader">
+      <div class="col-md-8">
+        <h4><strong>All questions</strong></h4>
+      </div>
+      <div class="col-md-4 pull-right" id="tabs">
+        <a ng-class="{youarehere : home.sort==='-dt_create'}" 
+        ng-click="home.sortQuestion('newest')">newest</a>
+        <a ng-class="{youarehere : home.sort === '-actions.votes.total'}"  
+        ng-click="home.sortQuestion('votes')">votes</a>
+        <a ng-class="{youarehere : home.sort === '-dt_update'}"
+        ng-click="home.sortQuestion('active')">active</a>
+      </div>
+    </div>
+    
+    <ul class="question-list" infinite-scroll="home.loadNext(home.page)" infinite-scroll-disabled="home.busy" infinite-scroll-distance="1">
+      <li class="question-row" ng-repeat="q in home.questions.instance">
+        <div class="row">
+
+          <div class="col-md-3 text-center">
+
+            <div class="row">
+              <div class="col-md-4 numbers">{{q.instance.actions.votes.users_upvote.length - q.instance.actions.votes.users_downvote.length}}</div>
+              <div class="col-md-4 numbers" 
+                ng-class="{
+                  answered   :  q.instance.haveAnswers, 
+                  unanswered : !q.instance.haveAnswers, 
+                  answeredAccepted : q.instance.checked
+                }">
+                {{q.instance.answers.length}}
+            </div>
+              <div class="col-md-4 numbers views">{{q.instance.views}}</div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 no-padding small">votes</div>
+              <div class="col-md-4 no-padding small"
+                ng-class="{
+                  answered : q.instance.haveAnswers, 
+                  unanswered : !q.instance.haveAnswers, 
+                  answeredAccepted : q.instance.checked
+                }">
+                answers</div>
+              <div class="col-md-4 no-padding small views">views</div>
+            </div>
+            
+          </div>
+
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-12"><h4 class="question-title"><a ui-sref="questions({ id:'{{q.instance._id}}' })">{{q.instance.title}}</a></h4></div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <span ng-repeat="tag in q.instance.tags"><a class="post-tag">{{tag.name}}</a></span>
+              </div>
+              <div class="col-md-6 pull-right" ng-hide="sort.active">
+                asked {{q.instance.dt_create | date:"mediumDate"}} by  {{q.instance.author.displayName || q.instance.author.identities.github._json.login || 'name not shared'}} 
+              </div>
+              <div class="col-md-6 pull-right" ng-show="sort.active">
+                updated {{q.instance.dt_update | date:"mediumDate"}} by {{q.instance.author.displayName || q.instance.author.identities.github._json.login || 'name not shared'}} 
+              </div>          
+            </div>
+          </div>
+
+        </div>
+        <hr style="margin: 15px 0">
+
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-md-3 text-center">
+    <div class="summarycount al">{{home.questions.totalElement}}</div>
+    <strong>questions</strong>
+
+    <div id="hireme" class=" blue looking tagged">
+      <a href="#" class="top" target="_blank">
+        <span>Looking for a job?</span> 
+      </a> 
+      <ul class="jobs"> 
+        <li> 
+          <a href="#" target="_blank" title="NodeJS Developer.">
+            <span class="title">NodeJS Developer</span>
+            <span class="company"></span>
+            <span class="location">London, UK</span> 
+            <span class="post-tag">javascript</span> 
+            <span class="post-tag">nodejs</span> 
+          </a> 
+        </li> 
+        <li> 
+          <a href="#" target="_blank" title="AngularJS Engineer at Stamplay."> 
+            <span class="title">AngularJS Engineer</span>
+            <span class="company"></span>
+            <span class="location">London, UK</span> 
+            <span class="post-tag">angularjs</span>
+             <span class="post-tag">javascript</span> 
+           </a> 
+         </li> 
+       </ul> 
+</div>

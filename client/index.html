@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nơi hỏi đáp về tiếng Nhật và Nhật bản">
+  <meta name="author" content="Onegai Q&A site">
+  <link rel="shortcut icon" href="/client/img/favicon.ico">
+  <title>Onegai | Q&A site</title>
+  <!-- Bootstrap core CSS -->
+  <link href="./vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Onegai CSS -->
+  <link href="./css/base.css" rel="stylesheet">
+  <link href="./css/app.css" rel="stylesheet">
+  <link href="./css/index.css" rel="stylesheet">
+  <link href="./css/question.css" rel="stylesheet">
+  <link href="./css/answer.css" rel="stylesheet">
+  <link href="./css/tags.css" rel="stylesheet">
+  <link href="./css/users.css" rel="stylesheet">
+  <link href="./css/sidebar.css" rel="stylesheet">
+  <link href="./vendor/textAngular/src/textAngular.css" rel="stylesheet">
+  <link href="./css/responsive.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <base href="/">
+</head>
+<body ng-app="stack">
+<!-- Top bar -->
+<div id="header-top">
+  <section class="container clearfix">
+    <nav class="header-top-nav">
+      <ul>
+        <li><a href=""><i class="fa fa-headphones"></i>Hỗ trợ</a></li>
+        <li><a href=""><i class="fa fa-user"></i>Đăng nhập</a></li>
+        <li>
+          <a href=""><span class="mail-status unread">1 </span><i class="fa fa-inbox"></i></a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-search">
+      <form method="get" action="/search">
+        <input type="text" value="Tìm kiếm ..." onfocus="if(this.value=='Tìm kiếm ...')this.value='';"
+               onblur="if(this.value=='')this.value='Tìm kiếm ...';" name="q">
+        <button type="submit" class="search-submit"></button>
+      </form>
+    </div>
+  </section><!-- End container -->
+</div><!-- End header-top -->
+<!-- Main container -->
+<div class="container" style="padding-bottom: 30px;">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <!-- Header -->
+      <div class="header" ng-include="'/client/partials/header.htm'"></div>
+      <!-- Main content -->
+      <div ui-view></div>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<div ng-include="'/client/partials/footer.htm'"></div>
+<!-- Vendor libraries -->
+<script src="/client/vendor/jquery/dist/jquery.min.js"></script>
+<script src="/client/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/client/vendor/angular/angular.min.js"></script>
+<script src="/client/vendor/angular-route/angular-route.min.js"></script>
+<script src="/client/vendor/angular-ui-router/release/angular-ui-router.js"></script>
+<script src='/client/vendor/textAngular/dist/textAngular-rangy.min.js'></script>
+<script src='/client/vendor/textAngular/dist/textAngular-sanitize.min.js'></script>
+<script src='/client/vendor/textAngular/dist/textAngular.min.js'></script>
+<script src="/client/vendor/async/lib/async.js"></script>
+<script src="/client/vendor/momentjs/min/moment.min.js"></script>
+<!-- Extend libraries -->
+<script src="/client/js/lib/ng-infinite-scroll.js"></script>
+<script src="/client/js/lib/ui-bootstrap-0.11.0.min.js"></script>
+<!-- REST Service -->
+<script src="/client/js/services/main.js"></script>
+<script src="/client/js/services/userService.js"></script>
+<script src="/client/js/services/tagsService.js"></script>
+<script src="/client/js/services/questionsService.js"></script>
+<script src="/client/js/services/answersService.js"></script>
+<!-- Angular app variable with the controllers -->
+<script src="/client/js/modules/app.js"></script>
+<script src="/client/js/controllers/menuCtrl.js"></script>
+<script src="/client/js/controllers/askCtrl.js"></script>
+<script src="/client/js/controllers/tagsCtrl.js"></script>
+<script src="/client/js/controllers/usersCtrl.js"></script>
+<script src="/client/js/controllers/answerCtrl.js"></script>
+<script src="/client/js/controllers/answerEditCtrl.js"></script>
+<script src="/client/js/controllers/homeCtrl.js"></script>
+</body>
+</html>

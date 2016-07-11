@@ -1,0 +1,13 @@
+.user-details-info {
+	float: left;
+	margin-left: 5px;
+	overflow: hidden;
+	white-space: nowrap;
+
+}
+
+.user-info{
+		padding-bottom: 12px;
+	padding-right: 6px;
+	padding-top: 6px;
+}
