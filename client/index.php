@@ -1,3 +1,7 @@
+<?php $___env['webroot'] = '/client/'; ?>
+<?php $___env[''] = ''; ?>
+<?php $___env[''] = ''; ?>
+<?php $___env[''] = ''; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,33 +64,33 @@
 <!-- Footer -->
 <div ng-include="'/client/partials/footer.htm'"></div>
 <!-- Vendor libraries -->
-<script src="/client/vendor/jquery/dist/jquery.min.js"></script>
-<script src="/client/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/client/vendor/angular/angular.min.js"></script>
-<script src="/client/vendor/angular-route/angular-route.min.js"></script>
-<script src="/client/vendor/angular-ui-router/release/angular-ui-router.js"></script>
-<script src='/client/vendor/textAngular/dist/textAngular-rangy.min.js'></script>
-<script src='/client/vendor/textAngular/dist/textAngular-sanitize.min.js'></script>
-<script src='/client/vendor/textAngular/dist/textAngular.min.js'></script>
-<script src="/client/vendor/async/lib/async.js"></script>
-<script src="/client/vendor/momentjs/min/moment.min.js"></script>
+<script src="<?= $___env['webroot']?>vendor/jquery/dist/jquery.min.js"></script>
+<script src="<?= $___env['webroot']?>vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?= $___env['webroot']?>vendor/angular/angular.min.js"></script>
+<script src="<?= $___env['webroot']?>vendor/angular-route/angular-route.min.js"></script>
+<script src="<?= $___env['webroot']?>vendor/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="<?= $___env['webroot']?>vendor/textAngular/dist/textAngular-rangy.min.js"></script>
+<script src="<?= $___env['webroot']?>vendor/textAngular/dist/textAngular-sanitize.min.js"></script>
+<script src="<?= $___env['webroot']?>vendor/textAngular/dist/textAngular.min.js"></script>
+<script src="<?= $___env['webroot']?>vendor/async/lib/async.js"></script>
+<script src="<?= $___env['webroot']?>vendor/momentjs/min/moment.min.js"></script>
 <!-- Extend libraries -->
-<script src="/client/js/lib/ng-infinite-scroll.js"></script>
-<script src="/client/js/lib/ui-bootstrap-0.11.0.min.js"></script>
+<script src="<?= $___env['webroot']?>js/lib/ng-infinite-scroll.js"></script>
+<script src="<?= $___env['webroot']?>js/lib/ui-bootstrap-0.11.0.min.js"></script>
 <!-- REST Service -->
-<script src="/client/js/services/main.js"></script>
-<script src="/client/js/services/userService.js"></script>
-<script src="/client/js/services/tagsService.js"></script>
-<script src="/client/js/services/questionsService.js"></script>
-<script src="/client/js/services/answersService.js"></script>
+<script src="<?= $___env['webroot']?>js/services/main.js"></script>
+<script src="<?= $___env['webroot']?>js/services/userService.js"></script>
+<script src="<?= $___env['webroot']?>js/services/tagsService.js"></script>
+<script src="<?= $___env['webroot']?>js/services/questionsService.js"></script>
+<script src="<?= $___env['webroot']?>js/services/answersService.js"></script>
 <!-- Angular app variable with the controllers -->
-<script src="/client/js/modules/app.js"></script>
-<script src="/client/js/controllers/menuCtrl.js"></script>
-<script src="/client/js/controllers/askCtrl.js"></script>
-<script src="/client/js/controllers/tagsCtrl.js"></script>
-<script src="/client/js/controllers/usersCtrl.js"></script>
-<script src="/client/js/controllers/answerCtrl.js"></script>
-<script src="/client/js/controllers/answerEditCtrl.js"></script>
-<script src="/client/js/controllers/homeCtrl.js"></script>
+<script src="<?= $___env['webroot']?>js/modules/app.js"></script>
+<script src="<?= $___env['webroot']?>js/controllers/menuCtrl.js"></script>
+<script src="<?= $___env['webroot']?>js/controllers/askCtrl.js"></script>
+<script src="<?= $___env['webroot']?>js/controllers/tagsCtrl.js"></script>
+<script src="<?= $___env['webroot']?>js/controllers/usersCtrl.js"></script>
+<script src="<?= $___env['webroot']?>js/controllers/answerCtrl.js"></script>
+<script src="<?= $___env['webroot']?>js/controllers/answerEditCtrl.js"></script>
+<script src="<?= $___env['webroot']?>js/controllers/homeCtrl.js"></script>
 </body>
 </html>
