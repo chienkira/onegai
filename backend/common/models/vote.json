@@ -1,0 +1,36 @@
+{
+  "name": "vote",
+  "plural": "votes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "usersId": {
+      "type": "number",
+      "required": true
+    },
+    "objectId": {
+      "type": "number",
+      "required": true
+    },
+    "positive": {
+      "type": "string"
+    },
+    "negative": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

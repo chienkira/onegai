@@ -1,0 +1,16 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mysqlDs": {
+    "host": "kira-dev.jp",
+    "port": 3306,
+    "url": "mysql://root:pass@kira-dev.jp/databaseQA",
+    "database": "databaseQA",
+    "password": "pass",
+    "name": "mysqlDs",
+    "user": "root",
+    "connector": "mysql"
+  }
+}
