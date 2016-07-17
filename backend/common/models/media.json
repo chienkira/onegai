@@ -1,5 +1,5 @@
 {
-  "name": "Vote",
+  "name": "Media",
   "base": "PersistedModel",
   "idInjection": false,
   "options": {
@@ -7,7 +7,7 @@
   },
   "mysql": {
     "schema": "databaseQA",
-    "table": "vote"
+    "table": "media"
   },
   "properties": {
     "id": {
@@ -27,78 +27,30 @@
       },
       "_selectable": false
     },
-    "usersid": {
-      "type": "Number",
-      "required": true,
-      "length": null,
-      "precision": 10,
-      "scale": 0,
-      "mysql": {
-        "columnName": "usersId",
-        "dataType": "int",
-        "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 0,
-        "nullable": "N"
-      },
-      "_selectable": false
-    },
-    "objectid": {
-      "type": "Number",
-      "required": true,
-      "length": null,
-      "precision": 10,
-      "scale": 0,
-      "mysql": {
-        "columnName": "objectId",
-        "dataType": "int",
-        "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 0,
-        "nullable": "N"
-      },
-      "_selectable": false
-    },
-    "object": {
+    "username": {
       "type": "String",
       "required": true,
-      "length": 32,
+      "length": 72,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "object",
+        "columnName": "username",
         "dataType": "varchar",
-        "dataLength": 32,
+        "dataLength": 72,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
       },
       "_selectable": false
     },
-    "positive": {
+    "type": {
       "type": "Number",
       "required": true,
       "length": null,
       "precision": 10,
       "scale": 0,
       "mysql": {
-        "columnName": "positive",
-        "dataType": "int",
-        "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 0,
-        "nullable": "N"
-      },
-      "_selectable": false
-    },
-    "negative": {
-      "type": "Number",
-      "required": true,
-      "length": null,
-      "precision": 10,
-      "scale": 0,
-      "mysql": {
-        "columnName": "negative",
+        "columnName": "type",
         "dataType": "int",
         "dataLength": null,
         "dataPrecision": 10,
@@ -119,6 +71,22 @@
         "dataLength": null,
         "dataPrecision": 10,
         "dataScale": 0,
+        "nullable": "N"
+      },
+      "_selectable": false
+    },
+    "filename": {
+      "type": "String",
+      "required": true,
+      "length": 255,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "filename",
+        "dataType": "varchar",
+        "dataLength": 255,
+        "dataPrecision": null,
+        "dataScale": null,
         "nullable": "N"
       },
       "_selectable": false

@@ -1,5 +1,5 @@
 {
-  "name": "Vote",
+  "name": "Activitynotifications",
   "base": "PersistedModel",
   "idInjection": false,
   "options": {
@@ -7,7 +7,7 @@
   },
   "mysql": {
     "schema": "databaseQA",
-    "table": "vote"
+    "table": "activityNotifications"
   },
   "properties": {
     "id": {
@@ -43,14 +43,14 @@
       },
       "_selectable": false
     },
-    "objectid": {
+    "postsid": {
       "type": "Number",
       "required": true,
       "length": null,
       "precision": 10,
       "scale": 0,
       "mysql": {
-        "columnName": "objectId",
+        "columnName": "postsId",
         "dataType": "int",
         "dataLength": null,
         "dataPrecision": 10,
@@ -59,57 +59,57 @@
       },
       "_selectable": false
     },
-    "object": {
-      "type": "String",
+    "postsreplyid": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
+      "mysql": {
+        "columnName": "postsReplyId",
+        "dataType": "int",
+        "dataLength": null,
+        "dataPrecision": 10,
+        "dataScale": 0,
+        "nullable": "Y"
+      },
+      "_selectable": true
+    },
+    "type": {
+      "type": "Boolean",
       "required": true,
-      "length": 32,
+      "length": 1,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "object",
-        "dataType": "varchar",
-        "dataLength": 32,
+        "columnName": "type",
+        "dataType": "char",
+        "dataLength": 1,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
       },
       "_selectable": false
     },
-    "positive": {
+    "usersoriginid": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 10,
       "scale": 0,
       "mysql": {
-        "columnName": "positive",
+        "columnName": "usersOriginId",
         "dataType": "int",
         "dataLength": null,
         "dataPrecision": 10,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       },
-      "_selectable": false
-    },
-    "negative": {
-      "type": "Number",
-      "required": true,
-      "length": null,
-      "precision": 10,
-      "scale": 0,
-      "mysql": {
-        "columnName": "negative",
-        "dataType": "int",
-        "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 0,
-        "nullable": "N"
-      },
-      "_selectable": false
+      "_selectable": true
     },
     "createdat": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 10,
       "scale": 0,
@@ -119,9 +119,41 @@
         "dataLength": null,
         "dataPrecision": 10,
         "dataScale": 0,
+        "nullable": "Y"
+      },
+      "_selectable": true
+    },
+    "wasread": {
+      "type": "Boolean",
+      "required": true,
+      "length": 1,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "wasRead",
+        "dataType": "char",
+        "dataLength": 1,
+        "dataPrecision": null,
+        "dataScale": null,
         "nullable": "N"
       },
       "_selectable": false
+    },
+    "extra": {
+      "type": "String",
+      "required": false,
+      "length": 32,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "extra",
+        "dataType": "varchar",
+        "dataLength": 32,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      },
+      "_selectable": true
     }
   },
   "validations": [],

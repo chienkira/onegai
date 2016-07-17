@@ -1,5 +1,5 @@
 {
-  "name": "Vote",
+  "name": "Tags",
   "base": "PersistedModel",
   "idInjection": false,
   "options": {
@@ -7,7 +7,7 @@
   },
   "mysql": {
     "schema": "databaseQA",
-    "table": "vote"
+    "table": "tags"
   },
   "properties": {
     "id": {
@@ -27,98 +27,98 @@
       },
       "_selectable": false
     },
-    "usersid": {
-      "type": "Number",
-      "required": true,
-      "length": null,
-      "precision": 10,
-      "scale": 0,
-      "mysql": {
-        "columnName": "usersId",
-        "dataType": "int",
-        "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 0,
-        "nullable": "N"
-      },
-      "_selectable": false
-    },
-    "objectid": {
-      "type": "Number",
-      "required": true,
-      "length": null,
-      "precision": 10,
-      "scale": 0,
-      "mysql": {
-        "columnName": "objectId",
-        "dataType": "int",
-        "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 0,
-        "nullable": "N"
-      },
-      "_selectable": false
-    },
-    "object": {
+    "name": {
       "type": "String",
       "required": true,
-      "length": 32,
+      "length": 72,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "object",
+        "columnName": "name",
         "dataType": "varchar",
-        "dataLength": 32,
+        "dataLength": 72,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
       },
       "_selectable": false
     },
-    "positive": {
-      "type": "Number",
+    "description": {
+      "type": "String",
       "required": true,
-      "length": null,
-      "precision": 10,
-      "scale": 0,
+      "length": 65535,
+      "precision": null,
+      "scale": null,
       "mysql": {
-        "columnName": "positive",
-        "dataType": "int",
-        "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 0,
+        "columnName": "description",
+        "dataType": "text",
+        "dataLength": 65535,
+        "dataPrecision": null,
+        "dataScale": null,
         "nullable": "N"
       },
       "_selectable": false
     },
-    "negative": {
+    "slug": {
+      "type": "String",
+      "required": false,
+      "length": 32,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "slug",
+        "dataType": "varchar",
+        "dataLength": 32,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      },
+      "_selectable": true
+    },
+    "numberposts": {
       "type": "Number",
-      "required": true,
+      "required": false,
       "length": null,
       "precision": 10,
       "scale": 0,
       "mysql": {
-        "columnName": "negative",
+        "columnName": "numberPosts",
         "dataType": "int",
         "dataLength": null,
         "dataPrecision": 10,
         "dataScale": 0,
+        "nullable": "Y"
+      },
+      "_selectable": true
+    },
+    "nobounty": {
+      "type": "Boolean",
+      "required": true,
+      "length": 1,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "noBounty",
+        "dataType": "char",
+        "dataLength": 1,
+        "dataPrecision": null,
+        "dataScale": null,
         "nullable": "N"
       },
       "_selectable": false
     },
-    "createdat": {
-      "type": "Number",
+    "nodigest": {
+      "type": "Boolean",
       "required": true,
-      "length": null,
-      "precision": 10,
-      "scale": 0,
+      "length": 1,
+      "precision": null,
+      "scale": null,
       "mysql": {
-        "columnName": "createdAt",
-        "dataType": "int",
-        "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 0,
+        "columnName": "noDigest",
+        "dataType": "char",
+        "dataLength": 1,
+        "dataPrecision": null,
+        "dataScale": null,
         "nullable": "N"
       },
       "_selectable": false

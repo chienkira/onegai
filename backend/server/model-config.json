@@ -13,9 +13,6 @@
       "./mixins"
     ]
   },
-  "User": {
-    "dataSource": "db"
-  },
   "AccessToken": {
     "dataSource": "db",
     "public": false
@@ -32,7 +29,111 @@
     "dataSource": "db",
     "public": false
   },
-  "vote": {
+  "Activities": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Activitynotifications": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Audit": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Auditdetail": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Comment": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Media": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Mediatype": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Notifications": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Notificationsbounces": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Posts": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Postsbounties": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Postshistory": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Postsreply": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Postsnotifications": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Postsreplyhistory": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Postssubscribers": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Poststags": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Postsviews": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Remembertokens": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Subscribe": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Successlogins": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Tags": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Topictracking": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Template": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Users": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Usersbadges": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Vote": {
     "dataSource": "mysqlDs",
     "public": true
   }

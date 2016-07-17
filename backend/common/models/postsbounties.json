@@ -1,5 +1,5 @@
 {
-  "name": "Vote",
+  "name": "Postsbounties",
   "base": "PersistedModel",
   "idInjection": false,
   "options": {
@@ -7,7 +7,7 @@
   },
   "mysql": {
     "schema": "databaseQA",
-    "table": "vote"
+    "table": "postsBounties"
   },
   "properties": {
     "id": {
@@ -19,6 +19,22 @@
       "scale": 0,
       "mysql": {
         "columnName": "id",
+        "dataType": "int",
+        "dataLength": null,
+        "dataPrecision": 10,
+        "dataScale": 0,
+        "nullable": "N"
+      },
+      "_selectable": false
+    },
+    "postsid": {
+      "type": "Number",
+      "required": true,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
+      "mysql": {
+        "columnName": "postsId",
         "dataType": "int",
         "dataLength": null,
         "dataPrecision": 10,
@@ -43,14 +59,14 @@
       },
       "_selectable": false
     },
-    "objectid": {
+    "postsreplyid": {
       "type": "Number",
       "required": true,
       "length": null,
       "precision": 10,
       "scale": 0,
       "mysql": {
-        "columnName": "objectId",
+        "columnName": "postsReplyId",
         "dataType": "int",
         "dataLength": null,
         "dataPrecision": 10,
@@ -59,46 +75,14 @@
       },
       "_selectable": false
     },
-    "object": {
-      "type": "String",
-      "required": true,
-      "length": 32,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "object",
-        "dataType": "varchar",
-        "dataLength": 32,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "N"
-      },
-      "_selectable": false
-    },
-    "positive": {
+    "points": {
       "type": "Number",
       "required": true,
       "length": null,
       "precision": 10,
       "scale": 0,
       "mysql": {
-        "columnName": "positive",
-        "dataType": "int",
-        "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 0,
-        "nullable": "N"
-      },
-      "_selectable": false
-    },
-    "negative": {
-      "type": "Number",
-      "required": true,
-      "length": null,
-      "precision": 10,
-      "scale": 0,
-      "mysql": {
-        "columnName": "negative",
+        "columnName": "points",
         "dataType": "int",
         "dataLength": null,
         "dataPrecision": 10,
