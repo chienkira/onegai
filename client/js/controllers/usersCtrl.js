@@ -1,7 +1,7 @@
 /*global angular*/
 'use strict';
 angular
-	.module('stack')
+	.module('onegai')
 	.controller('usersCtrl', ['users', 'usersService',
 		function (users, usersService) {
 			var usersModel = this;

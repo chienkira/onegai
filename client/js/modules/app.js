@@ -1,10 +1,10 @@
 /*global angular*/
 'use strict';
 
-angular.module('stack', ['stack.service', 'infinite-scroll', 'ngRoute', 'ui.router', 'ui.bootstrap', 'textAngular']);
+angular.module('onegai', ['onegai.service', 'ngRoute', 'ui.router', 'ui.bootstrap', 'textAngular', 'restangular']);
 
 angular
-	.module('stack')
+	.module('onegai')
 	.config(function ($stateProvider, $urlRouterProvider, $provide) {
 
 		/* Textangular options, same options as StackOverflow */
@@ -68,8 +68,14 @@ angular
 					}
 				}
 			});
-	})
-	/* 
+	});
+
+angular
+  .module('onegai')
+  .config(['RestangularProvider', function (RestangularProvider) {
+    RestangularProvider.setBaseUrl('http://kira-dev.jp:3000/api');
+  }]);
+	/*
 		Before starting the application we're saving the user if present in the rootScope
 	*/
 	// .run(['$rootScope', 'userService',

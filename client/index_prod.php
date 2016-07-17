@@ -18,7 +18,7 @@
     <base href="/">
   </head>
 
-  <body ng-app="stack">
+  <body ng-app="onegai">
 
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -28,7 +28,7 @@
           <div class="row">
             <div class="col-md-4 col-md-offset-1">
               <a href="" target="_blank">
-                <img 
+                <img
                   src="/client/img/logo.png"
                   style="width:102px; height: 19px; margin-top: 6px;"/>
               </a>
@@ -64,7 +64,7 @@
                   <div id="hlogo">
                     <a href="/" style="margin-top:-34px;"></a>
                   </div>
-                  <h3 style="display: inline;color:#000;font-size: 30px;" 
+                  <h3 style="display: inline;color:#000;font-size: 30px;"
                       class="text-muted">clone</h3>
                 </div>
 
@@ -73,7 +73,7 @@
                     <li ng-class="{youarehere : url == '/'}"><a ui-sref="home">Home</a></li>
                     <li ng-class="{youarehere : url == '/tags'}"><a ui-sref="tags">Tags</a></li>
                     <li ng-class="{youarehere : url == '/users'}"><a ui-sref="users">Users</a></li>
-                    <li ng-class="{youarehere : url == '/questions/ask'}"  
+                    <li ng-class="{youarehere : url == '/questions/ask'}"
                       class="pull-right"
                       ng-show="user.instance._id">
                       <a ui-sref="ask">Ask a question</a>
@@ -111,7 +111,7 @@
       <script src="/client/vendor/angular/angular.min.js"></script>
       <script src="/client/vendor/angular-route/angular-route.min.js"></script>
       <script src="/client/vendor/angular-ui-router/release/angular-ui-router.js"></script>
-      
+
       <script src="/client/dist/services.min.js"></script>
       <script src="/client/dist/libs.min.js"></script>
       <script src="/client/vendor/async/lib/async.js"></script>
@@ -119,8 +119,8 @@
       <script src='/client/vendor/textAngular/dist/textAngular-rangy.min.js'></script>
       <script src='/client/vendor/textAngular/dist/textAngular-sanitize.min.js'></script>
       <script src='/client/vendor/textAngular/dist/textAngular.min.js'></script>
-      
-      <!-- Defines angular app variable with the tag service -->  
+
+      <!-- Defines angular app variable with the tag service -->
       <script src="/client/js/modules/app.js"></script>
 
       <script src="/client/dist/controllers.min.js"></script>

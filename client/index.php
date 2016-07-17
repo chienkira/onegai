@@ -17,18 +17,16 @@
   <!-- Onegai CSS -->
   <link href="./css/base.css" rel="stylesheet">
   <link href="./css/app.css" rel="stylesheet">
-  <link href="./css/index.css" rel="stylesheet">
   <link href="./css/question.css" rel="stylesheet">
   <link href="./css/answer.css" rel="stylesheet">
   <link href="./css/tags.css" rel="stylesheet">
   <link href="./css/users.css" rel="stylesheet">
-  <link href="./css/sidebar.css" rel="stylesheet">
   <link href="./vendor/textAngular/src/textAngular.css" rel="stylesheet">
   <link href="./css/responsive.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <base href="/">
 </head>
-<body ng-app="stack">
+<body ng-app="onegai">
 <!-- Top bar -->
 <div id="header-top">
   <section class="container clearfix">
@@ -53,12 +51,10 @@
 <!-- Main container -->
 <div class="container" style="padding-bottom: 30px;">
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <!-- Header -->
-      <div class="header" ng-include="'/client/partials/header.htm'"></div>
-      <!-- Main content -->
-      <div ui-view></div>
-    </div>
+    <!-- Header -->
+    <div class="header" ng-include="'/client/partials/header.htm'"></div>
+    <!-- Main content -->
+    <div ui-view></div>
   </div>
 </div>
 <!-- Footer -->
@@ -72,10 +68,11 @@
 <script src="<?= $___env['webroot']?>vendor/textAngular/dist/textAngular-rangy.min.js"></script>
 <script src="<?= $___env['webroot']?>vendor/textAngular/dist/textAngular-sanitize.min.js"></script>
 <script src="<?= $___env['webroot']?>vendor/textAngular/dist/textAngular.min.js"></script>
+<script src="<?= $___env['webroot']?>vendor/lodash/dist/lodash.min.js"></script>
+<script src="<?= $___env['webroot']?>vendor/restangular/dist/restangular.min.js"></script>
 <script src="<?= $___env['webroot']?>vendor/async/lib/async.js"></script>
 <script src="<?= $___env['webroot']?>vendor/momentjs/min/moment.min.js"></script>
 <!-- Extend libraries -->
-<script src="<?= $___env['webroot']?>js/lib/ng-infinite-scroll.js"></script>
 <script src="<?= $___env['webroot']?>js/lib/ui-bootstrap-0.11.0.min.js"></script>
 <!-- REST Service -->
 <script src="<?= $___env['webroot']?>js/services/main.js"></script>

@@ -1,1 +1,1 @@
-angular.module('stack.service', []);
+angular.module('onegai.service', []);

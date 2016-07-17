@@ -1,5 +1,5 @@
 angular
-	.module('stack')
+	.module('onegai')
 	.controller('answerEditCtrl', ['$scope', 'userService', 'answersService', 'questionsService', '$http',
 		function ($scope, userService, answersService, questionsService, $http) {
 			var answModel = this;

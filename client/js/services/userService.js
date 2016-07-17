@@ -2,8 +2,8 @@
 'use strict';
 
 angular
-	.module('stack.service')
-	.factory('userService', ['$q', '$http', '$stamplay', function ($q, $http, $stamplay) {
+	.module('onegai.service')
+	.factory('userService', ['$q', '$http', function ($q, $http) {
 		var user = $stamplay.User().Model;
 
 		return {
@@ -50,8 +50,7 @@ angular
 		};
 	}])
 
-.factory('usersService', ['$q', '$stamplay', function ($q, $stamplay) {
-	var usersList = $stamplay.User().Collection;
+.factory('usersService', ['$q', function ($q) {
 
 	return {
 

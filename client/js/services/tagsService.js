@@ -2,9 +2,8 @@
 'use strict';
 
 angular
-	.module('stack.service')
-	.factory('tagsService', ['$q', '$stamplay', function ($q, $stamplay) {
-		var tags = $stamplay.Cobject('tag').Collection;
+	.module('onegai.service')
+	.factory('tagsService', ['$q', function ($q) {
 
 		return {
 
@@ -29,7 +28,6 @@ angular
 
 			getById: function (tagId) {
 				var def = $q.defer();
-				var tag = $stamplay.Cobject('tag').Model;
 
 				if (tags.get(tagId)) {
 					def.resolve(tags.get(tagId));

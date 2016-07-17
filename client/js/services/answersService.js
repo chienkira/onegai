@@ -2,8 +2,8 @@
 'use strict';
 
 angular
-	.module('stack.service')
-	.factory('answersService', ['$q', 'usersService', '$stamplay', function ($q, usersService, $stamplay) {
+	.module('onegai.service')
+	.factory('answersService', ['$q', 'usersService', function ($q, usersService) {
 
 		function _getTotalVotes(model) {
 			return model.get('actions').votes.users_upvote.length - model.get('actions').votes.users_downvote.length

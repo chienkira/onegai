@@ -1,5 +1,5 @@
 angular
-	.module('stack')
+	.module('onegai')
 	.controller('tagsCtrl', ['tagsService', '$filter',
 		function (tagsService, $filter) {
 			var tagsModel = this;

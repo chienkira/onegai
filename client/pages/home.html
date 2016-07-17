@@ -1,103 +1,206 @@
 <div class="row">
 
   <div class="col-md-9">
-    <div class="row subheader">
-      <div class="col-md-8">
-        <h4><strong>All questions</strong></h4>
-      </div>
-      <div class="col-md-4 pull-right" id="tabs">
-        <a ng-class="{youarehere : home.sort==='-dt_create'}" 
-        ng-click="home.sortQuestion('newest')">newest</a>
-        <a ng-class="{youarehere : home.sort === '-actions.votes.total'}"  
-        ng-click="home.sortQuestion('votes')">votes</a>
-        <a ng-class="{youarehere : home.sort === '-dt_update'}"
-        ng-click="home.sortQuestion('active')">active</a>
+    <div class="tabs-warp question-tab">
+      <ul class="tabs">
+        <div class="col-md-6">
+          <h4><strong>Câu hỏi</strong></h4>
+        </div>
+        <div class="col-md-6">
+          <li class="tab"><a ng-class="{current : home.sort==='-dt_create'}"
+                             ng-click="home.sortQuestion('newest')">Mới nhất</a></li>
+          <li class="tab"><a ng-class="{current : home.sort === '-actions.votes.total'}"
+                             ng-click="home.sortQuestion('votes')">Hot!</a></li>
+          <li class="tab"><a ng-class="{current : home.sort === '-dt_update'}"
+                             ng-click="home.sortQuestion('active')">Chờ bạn trả lời</a></li>
+        </div>
+      </ul>
+
+      <div class="tab-inner-warp">
+        <div class="tab-inner">
+          <article class="question question-type-normal" ng-repeat="q in home.questions">
+            <h2>
+              <a ui-sref="questions({ id:'{{q.id}}' })">{{q.title}}</a>
+            </h2>
+            <span ng-repeat="tag in q.instance.tags"><a class="question-report">{{tag.name}}</a></span>
+            <div class="question-author">
+              <a href="#" class="question-author-img tooltip-n"><span></span>
+                <img
+                  src="http://www.gravatar.com/avatar/ac7bdf4ded5de62c679b302870464d7c?s=32&amp;d=identicon&amp;r=pg">
+              </a>
+            </div>
+            <div class="question-inner">
+              <div class="clearfix"></div>
+              <div class="question-desc">
+                {{q.content | limitTo: 210}}{{q.content.length > 210 ? '...' : ''}}
+              </div>
+              <div class="question-details">
+                <span class="question-answered" ng-class="{
+                  'question-answered-done' : q.numberreply > 0 && q.acceptedanswer
+                  }">
+                  <i class="fa fa-check"></i>{{q.numberreply > 0 && q.acceptedanswer ? 'solved' : 'in progress'}}
+                </span>
+              </div>
+              <span class="question-favorite iam-subscribe" data-object-id="30">
+                <i class="fa fa-star"></i>{{q.instance.actions.votes.users_upvote.length - q.instance.actions.votes.users_downvote.length}}
+              </span>
+              <span class="question-comment">
+                  <a href="#"><i class="fa fa-comment"></i>{{q.numberreply}} trả lời</a>
+              </span>
+              <span class="question-view">
+                <i class="fa fa-user"></i>{{q.numberviews}} lượt xem
+              </span>
+              <span class="question-date">
+                <i class="fa fa-time"></i>{{q.createdat | date:"mediumDate"}}
+              </span>
+              <div class="clearfix"></div>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
-    
-    <ul class="question-list" infinite-scroll="home.loadNext(home.page)" infinite-scroll-disabled="home.busy" infinite-scroll-distance="1">
-      <li class="question-row" ng-repeat="q in home.questions.instance">
-        <div class="row">
-
-          <div class="col-md-3 text-center">
-
-            <div class="row">
-              <div class="col-md-4 numbers">{{q.instance.actions.votes.users_upvote.length - q.instance.actions.votes.users_downvote.length}}</div>
-              <div class="col-md-4 numbers" 
-                ng-class="{
-                  answered   :  q.instance.haveAnswers, 
-                  unanswered : !q.instance.haveAnswers, 
-                  answeredAccepted : q.instance.checked
-                }">
-                {{q.instance.answers.length}}
-            </div>
-              <div class="col-md-4 numbers views">{{q.instance.views}}</div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-4 no-padding small">votes</div>
-              <div class="col-md-4 no-padding small"
-                ng-class="{
-                  answered : q.instance.haveAnswers, 
-                  unanswered : !q.instance.haveAnswers, 
-                  answeredAccepted : q.instance.checked
-                }">
-                answers</div>
-              <div class="col-md-4 no-padding small views">views</div>
-            </div>
-            
-          </div>
-
-          <div class="col-md-9">
-            <div class="row">
-              <div class="col-md-12"><h4 class="question-title"><a ui-sref="questions({ id:'{{q.instance._id}}' })">{{q.instance.title}}</a></h4></div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <span ng-repeat="tag in q.instance.tags"><a class="post-tag">{{tag.name}}</a></span>
-              </div>
-              <div class="col-md-6 pull-right" ng-hide="sort.active">
-                asked {{q.instance.dt_create | date:"mediumDate"}} by  {{q.instance.author.displayName || q.instance.author.identities.github._json.login || 'name not shared'}} 
-              </div>
-              <div class="col-md-6 pull-right" ng-show="sort.active">
-                updated {{q.instance.dt_update | date:"mediumDate"}} by {{q.instance.author.displayName || q.instance.author.identities.github._json.login || 'name not shared'}} 
-              </div>          
-            </div>
-          </div>
-
-        </div>
-        <hr style="margin: 15px 0">
-
-      </li>
-    </ul>
   </div>
 
-  <div class="col-md-3 text-center">
-    <div class="summarycount al">{{home.questions.totalElement}}</div>
-    <strong>questions</strong>
+  <!-- Side bar -->
+  <aside class="col-md-3 sidebar">
 
-    <div id="hireme" class=" blue looking tagged">
-      <a href="#" class="top" target="_blank">
-        <span>Looking for a job?</span> 
-      </a> 
-      <ul class="jobs"> 
-        <li> 
-          <a href="#" target="_blank" title="NodeJS Developer.">
-            <span class="title">NodeJS Developer</span>
-            <span class="company"></span>
-            <span class="location">London, UK</span> 
-            <span class="post-tag">javascript</span> 
-            <span class="post-tag">nodejs</span> 
-          </a> 
-        </li> 
-        <li> 
-          <a href="#" target="_blank" title="AngularJS Engineer at Stamplay."> 
-            <span class="title">AngularJS Engineer</span>
-            <span class="company"></span>
-            <span class="location">London, UK</span> 
-            <span class="post-tag">angularjs</span>
-             <span class="post-tag">javascript</span> 
-           </a> 
-         </li> 
-       </ul> 
+    <div class="widget widget_highest_points">
+      <h3 class="widget_title">Danh tiếng</h3>
+      <ul>
+        <li>
+          <div class="author-img">
+            <a href="">
+              <img width="60" height="60"
+                   src="http://www.gravatar.com/avatar/bfa717f23e7d5f8a03b4d637dfccfda3?s=32&amp;d=identicon&amp;r=pg"
+                   alt="">
+            </a>
+          </div>
+          <h6><a href="/@admin">Admin</a></h6>
+          <span class="comment">1.2k Points</span>
+        </li>
+        <li>
+          <div class="author-img">
+            <a href="">
+              <img width="60" height="60"
+                   src="http://www.gravatar.com/avatar/7f36098958c21c6c6c52f094276c072c?s=32&amp;d=identicon&amp;r=pg"
+                   alt="">
+            </a>
+          </div>
+          <h6><a href="/@user2">Michael Budd</a></h6>
+          <span class="comment">1.2k Points</span>
+        </li>
+        <li>
+          <div class="author-img">
+            <a href="">
+              <img width="60" height="60"
+                   src="http://www.gravatar.com/avatar/dd3fffd03ae5ee21b4c8df91f54b3bf0?s=32&amp;d=identicon&amp;r=pg"
+                   alt="">
+            </a>
+          </div>
+          <h6><a href="/@users7">Sammy Supper</a></h6>
+          <span class="comment">634 Points</span>
+        </li>
+        <li>
+          <div class="author-img">
+            <a href="">
+              <img width="60" height="60"
+                   src="http://www.gravatar.com/avatar/01f4df1368731f30d8f5e2af26024238?s=32&amp;d=identicon&amp;r=pg"
+                   alt="">
+            </a>
+          </div>
+          <h6><a href="/@users6">Onegai Sensei</a></h6>
+          <span class="comment">296 Points</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="widget widget_recent_posts">
+      <h3 class="widget_title">Câu hỏi mới</h3>
+      <ul class="related-posts">
+        <li class="related-item">
+          <h3>
+            <a href="/questions/28/collection-phalcon-tips-and-tricks">Collection Phalcon tips and tricks</a></h3>
+          <div class="clear"></div>
+          <span> Jul 29/15 at 06:58</span>
+        </li>
+        <li class="related-item">
+          <h3>
+            <a href="/questions/25/which-linux-distro-for-production-server">Which Linux distro for production
+              server?</a></h3>
+          <div class="clear"></div>
+          <span> Jul 29/15 at 06:51</span>
+        </li>
+        <li class="related-item">
+          <h3>
+            <a href="/questions/1/wellcome-to-the-phanbook">Wellcome to the Phanbook</a></h3>
+          <div class="clear"></div>
+          <span> Jul 4/15 at 02:51</span>
+        </li>
+        <li class="related-item">
+          <h3>
+            <a href="/questions/21/phanbook-+-meetup-integration"> Phanbook + Meetup integration </a></h3>
+          <div class="clear"></div>
+          <span> Jul 19/15 at 03:48</span>
+        </li>
+        <li class="related-item">
+          <h3>
+            <a href="/questions/26/phalcon-206-released">Phalcon 2.0.6 released</a></h3>
+          <div class="clear"></div>
+          <span> Jul 29/15 at 06:55</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="widget widget_tag_cloud">
+      <h3 class="widget_title">Tags</h3>
+      <a href="/tags/1/php">PHP</a> <a href="/tags/2/python">Python</a> <a href="/tags/3/java">Java</a> <a
+      href="/tags/4/ruby">Ruby</a> <a href="/tags/5/phalcon-php">PhalconPHP</a> <a href="/tags/6/node-js">Nodejs</a> <a
+      href="/tags/7/linux">Linux</a> <a href="/tags/8/drupal">Drupal</a> <a href="/tags/9/wordpress">Wordpress</a> <a
+      href="/tags/10/joomla">Joomla</a> <a href="/tags/11/shell">Shell</a> <a href="/tags/12/mysql">Mysql</a> <a
+      href="/tags/13/cakephp">Cakephp</a> <a href="/tags/14/javascript">JavaScript</a> <a href="/tags/15/markdown">Markdown</a>
+      <a href="/tags/16/volt">Volt</a> <a href="/tags/17/offtopic">Offtopic</a> <a href="/tags/18/announcements">Announcements</a>
+      <a href="/tags/19/idea">Idea</a> <a href="/tags/20/download">Dơwnload</a> <a href="/tags/21/android">Android</a>
+      <a href="/tags/22/litpi">Litpi</a> <a href="/tags/23/jquery">Jquery</a> <a href="/tags/24/c">c</a> <a
+      href="/tags/25/css">Css</a> <a href="/tags/26/facebook">Facebook</a> <a href="/tags/27/apache">Apache</a> <a
+      href="/tags/28/codeigniter">Codeigniter</a> <a href="/tags/29/web-services">Web services</a> <a
+      href="/tags/30/performance">Performance</a> <a href="/tags/31/oracle">Oracle</a> <a href="/tags/32/zend">Zend</a>
+      <a href="/tags/33/unix">Unix</a> <a href="/tags/34/vagrant">Vagrant</a> <a href="/tags/35/devops">Devops</a> <a
+      href="/tags/36/discussions">Discussions</a> <a href="/tags/37/bounty">Bounty</a> <a
+      href="/tags/38/feature-request">Featue request</a> <a href="/tags/39/meta">Meta</a> <a href="/tags/40/phanbook">Phanbook</a>
+    </div>
+
+    <div class="widget widget_social">
+      <h3 class="widget_title">Theo dõi Onegai qua</h3>
+      <ul>
+        <li class="rss-subscribers">
+          <a href="#" target="_blank">
+            <strong>
+              <i class="fa fa-rss"></i>
+              <span>Subscribe</span><br>
+              <small>To RSS Feed</small>
+            </strong>
+          </a>
+        </li>
+        <li class="facebook-fans">
+          <a href="#" target="_blank">
+            <strong>
+              <i class="social_icon-facebook fa fa-facebook"></i>
+              <span>5,000</span><br>
+              <small>People like it</small>
+            </strong>
+          </a>
+        </li>
+        <li class="twitter-followers">
+          <a href="#" target="_blank">
+            <strong>
+              <i class="social_icon-twitter fa fa-twitter"></i>
+              <span>3,000</span><br>
+              <small>Followers</small>
+            </strong>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </aside>
 </div>

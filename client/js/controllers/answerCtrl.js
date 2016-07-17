@@ -9,7 +9,7 @@
  * The main functions defined here are: `setChecked`, `comment`, `voteUp` and `voteDown`
  */
 angular
-	.module('stack')
+	.module('onegai')
 	.controller('answerCtrl', ['$scope', 'question', 'userService', 'questionsService', 'answersService',
 		function ($scope, question, userService, questionsService, answersService) {
 			var answerModel = this;

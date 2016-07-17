@@ -1,15 +1,15 @@
 /*global angular*/
 'use strict';
 /*
-`homeModel` stores the `sort` criteria currently used to list the questions. 
-(I.E: `sort: {newest: true, votes: false, active:false}`. 
-When the controller starts `loadQuestion` is triggered and 
-it loads questions, their authors and also checks if a "checked" 
-(correct) answer already exists. `updateSortingOptions` is called 
+`homeModel` stores the `sort` criteria currently used to list the questions.
+(I.E: `sort: {newest: true, votes: false, active:false}`.
+When the controller starts `loadQuestion` is triggered and
+it loads questions, their authors and also checks if a "checked"
+(correct) answer already exists. `updateSortingOptions` is called
 when we need to change the sort criteria.
 */
 angular
-	.module('stack')
+	.module('onegai')
 	.controller('homeCtrl', ['questionsService',
 		function (questionsService) {
 			var homeModel = this;
@@ -21,8 +21,7 @@ angular
 
 			/* Loads the questions given a sort parameter */
 			homeModel.loadQuestions = function (params) {
-
-				questionsService.getQuestions(params)
+				questionsService.getList()
 					.then(function (result) {
 						if (homeModel.questions.add) {
 							result.forEach(function (item) {
@@ -30,10 +29,9 @@ angular
 							})
 						} else {
 							homeModel.questions = result;
-							homeModel.totalLength = homeModel.questions.totalElement;
+							homeModel.totalLength = homeModel.questions.length;
 						}
 						homeModel.page++;
-						homeModel.busy = false;
 					});
 			};
 
@@ -81,5 +79,7 @@ angular
 					populate: true
 				});
 			};
+
+      homeModel.sortQuestion();
 		}
 	]);

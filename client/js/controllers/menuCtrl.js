@@ -2,7 +2,7 @@
 'use strict';
 
 angular
-	.module('stack')
+	.module('onegai')
 	.controller('menuCtrl', ['$rootScope', '$scope', '$http', '$location',
 		function ($rootScope, $scope, $http, $location) {
 			$scope.$on('$routeChangeSuccess', function () {
