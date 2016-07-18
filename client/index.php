@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Nơi hỏi đáp về tiếng Nhật và Nhật bản">
   <meta name="author" content="Onegai Q&A site">
-  <link rel="shortcut icon" href="/client/img/favicon.ico">
+  <link rel="shortcut icon" href="<?= $___env['webroot']?>img/favicon.ico">
   <title>Onegai | Q&A site</title>
   <!-- Bootstrap core CSS -->
   <link href="./vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -52,13 +52,13 @@
 <div class="container" style="padding-bottom: 30px;">
   <div class="row">
     <!-- Header -->
-    <div class="header" ng-include="'/client/partials/header.htm'"></div>
+    <?php include 'partials/header.php';?>
     <!-- Main content -->
     <div ui-view></div>
   </div>
 </div>
 <!-- Footer -->
-<div ng-include="'/client/partials/footer.htm'"></div>
+<?php include 'partials/footer.php';?>
 <!-- Vendor libraries -->
 <script src="<?= $___env['webroot']?>vendor/jquery/dist/jquery.min.js"></script>
 <script src="<?= $___env['webroot']?>vendor/bootstrap/dist/js/bootstrap.min.js"></script>

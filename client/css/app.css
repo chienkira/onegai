@@ -241,6 +241,11 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
     text-align: center;
     float: none;
 }
+
+#hlogo a {
+  font-size: 42px;
+  font-weight: bold;
+}
 /* navigation */
 .navigation {
     margin-right: 10px;

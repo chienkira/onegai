@@ -41,7 +41,7 @@
 <footer id="footer-bottom">
   <section class="container">
     <div class="copyrights f_right">
-      &copy;2016 | <a href="<?php echo Url::to(['default/index'], true); ?>">By Kira-dev.jp</a>
+      &copy;2016 | <a href="<?= $___env['webroot']?>">By Kira-dev.jp</a>
       &nbsp;&nbsp;<span class="f_right">rev 2016.07.07.001</span>
     </div>
   </section><!-- End container -->

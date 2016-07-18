@@ -1,10 +1,10 @@
-<div class="row" style="margin-top:50px; margin-bottom:20px;">
+<div class="row" style="margin-top:30px; margin-bottom:20px;">
   <div class="col-md-4">
     <div id="hlogo">
-      <a href="/client" style="margin-top:-34px;"></a>
+      <a href="<?= rtrim($___env['webroot'], '/')?>" style="">
+        <img id="site-logo" src="<?= $___env['webroot']?>img/logo.png" alt="Onegai Q&A">お願い
+      </a>
     </div>
-    <h3 style="display: inline;color:#000;font-size: 32px;"
-        class="text-muted">お願い</h3>
   </div>
   <div class="col-md-8 nav mainnavs">
     <ul ng-controller="menuCtrl" class="nav nav-pills s-menu">
