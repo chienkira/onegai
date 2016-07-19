@@ -1,7 +1,9 @@
 <div class="row">
 
   <div class="col-md-9">
+    <!--Question list-->
     <div class="tabs-warp question-tab">
+      <!--Tab-->
       <ul class="tabs">
         <div class="col-md-6"></div>
         <div class="col-md-6">
@@ -13,8 +15,8 @@
                              ng-click="home.sortQuestion('unanswered')">Chờ bạn trả lời</a></li>
         </div>
       </ul>
-
-      <div class="tab-inner-warp">
+      <!--List-->
+      <div class="tab-inner-warp" cg-busy="{promise:home.questionsPromise,message:'Onegai...',backdrop:true}">
         <div class="tab-inner">
           <article class="question question-type-normal" ng-repeat="q in home.questions">
             <h2>
@@ -54,19 +56,23 @@
               <div class="clearfix"></div>
             </div>
           </article>
-
         </div>
       </div>
     </div>
-    <div class="pagination">
+    <!--Pagination-->
+    <div class="pagination" ng-if="home.questions.length > 0">
       <pagination
-        ng-model="home.page"
         total-items="home.total_count"
-        items-per-page = "home.per_page"
-        ng-change="home.loadPage(home.page)"
+        ng-model="home.page"
         max-size="5"
-        next-text =">>"
-        previous-text="<<">
+        class="pagination"
+        boundary-links="true"
+        force-ellipses="true"
+        ng-change="home.loadPage(home.page)"
+        first-text="Đầu"
+        last-text="Cuối"
+        next-text =">"
+        previous-text="<">
       </pagination>
     </div>
   </div>

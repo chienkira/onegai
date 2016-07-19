@@ -1,7 +1,7 @@
 /*global angular*/
 'use strict';
 
-angular.module('onegai', ['onegai.service', 'ngRoute', 'ui.router', 'ui.bootstrap', 'textAngular', 'restangular']);
+angular.module('onegai', ['onegai.service', 'ngRoute', 'ui.router', 'ui.bootstrap', 'textAngular', 'restangular', 'cgBusy']);
 
 angular
 	.module('onegai')

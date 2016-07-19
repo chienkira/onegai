@@ -18,7 +18,7 @@ angular
 			homeModel.page = 1;
 			homeModel.per_page = 10;
       homeModel.total_count = homeModel.per_page;
-      homeModel.total_page = homeModel.total_count / homeModel.per_page;
+      homeModel.total_page = homeModel.total_count / homeModel.per_page + 1;
 			homeModel.sort = 'createdat DESC';
 
       /* Count number of existing questions on database */
@@ -26,14 +26,15 @@ angular
         questionsService.customGET('count')
           .then(function (result) {
             homeModel.total_count = result.count;
-            homeModel.total_page = homeModel.total_count / homeModel.per_page;
+            homeModel.total_page = homeModel.total_count / homeModel.per_page + 1;
           });
       };
 
 			/* Loads the questions given a sort parameter */
 			homeModel.loadQuestions = function (params) {
-				questionsService.getList({filter: params})
-					.then(function (result) {
+        homeModel.questionsPromise = questionsService.getList({filter: params});
+        homeModel.questionsPromise.then(
+          function (result) {
 						if (homeModel.questions.add) {
 							result.forEach(function (item) {
 								homeModel.questions.add(item);
@@ -42,7 +43,10 @@ angular
 							homeModel.questions = result;
 							homeModel.totalLength = homeModel.questions.length;
 						}
-					});
+					},
+          function (res) {
+            homeModel.questions = [];
+          });
 			};
 
 			homeModel.loadPage = function (page) {
@@ -51,28 +55,27 @@ angular
           order: homeModel.sort,
           skip: (homeModel.page - 1) * homeModel.per_page,
           limit: homeModel.per_page
-        }
+        };
         homeModel.loadQuestions(params);
 			};
 
 			/* Listener on tab */
 			homeModel.sortQuestion = function (sortOn) {
 				homeModel.page = 1;
-				homeModel.questions = [];
-				switch (sortOn) {
-				case 'newest':
-					homeModel.sort = 'createdat DESC';
-					break;
-				case 'votes':
-					homeModel.sort = 'numbervote DESC';
-					break;
-				case 'unanswered':
-					homeModel.sort = 'numberreply DESC';
-					break;
-				default:
-					homeModel.sort = 'createdat DESC';
-					break;
-				}
+        switch (sortOn) {
+          case 'newest':
+            homeModel.sort = 'createdat DESC';
+            break;
+          case 'votes':
+            homeModel.sort = 'numbervote DESC';
+            break;
+          case 'unanswered':
+            homeModel.sort = 'numberreply ASC';
+            break;
+          default:
+            homeModel.sort = 'createdat DESC';
+            break;
+        }
 
 				homeModel.loadQuestions({
 					order: homeModel.sort,
@@ -81,7 +84,7 @@ angular
 				});
 			};
 
-      homeModel.sortQuestion();
       homeModel.countQuestions();
+      homeModel.sortQuestion();
 		}
 	]);
