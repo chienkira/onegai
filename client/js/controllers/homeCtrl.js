@@ -17,11 +17,22 @@ angular
 			homeModel.questions = [];
 			homeModel.page = 1;
 			homeModel.per_page = 10;
-			homeModel.sort = '-dt_create';
+      homeModel.total_count = homeModel.per_page;
+      homeModel.total_page = homeModel.total_count / homeModel.per_page;
+			homeModel.sort = 'createdat DESC';
+
+      /* Count number of existing questions on database */
+      homeModel.countQuestions = function () {
+        questionsService.customGET('count')
+          .then(function (result) {
+            homeModel.total_count = result.count;
+            homeModel.total_page = homeModel.total_count / homeModel.per_page;
+          });
+      };
 
 			/* Loads the questions given a sort parameter */
 			homeModel.loadQuestions = function (params) {
-				questionsService.getList()
+				questionsService.getList({filter: params})
 					.then(function (result) {
 						if (homeModel.questions.add) {
 							result.forEach(function (item) {
@@ -31,55 +42,46 @@ angular
 							homeModel.questions = result;
 							homeModel.totalLength = homeModel.questions.length;
 						}
-						homeModel.page++;
 					});
 			};
 
-			homeModel.loadNext = function (page) {
-				if (homeModel.questions.length !== homeModel.totalLength) {
-					homeModel.busy = true;
-					var params = {
-						sort: homeModel.sort,
-						page: page,
-						per_page: homeModel.per_page,
-						populate_owner: true,
-						populate: true
-					}
-
-					homeModel.loadQuestions(params);
-
-				}
+			homeModel.loadPage = function (page) {
+        homeModel.page = page;
+        var params = {
+          order: homeModel.sort,
+          skip: (homeModel.page - 1) * homeModel.per_page,
+          limit: homeModel.per_page
+        }
+        homeModel.loadQuestions(params);
 			};
 
 			/* Listener on tab */
 			homeModel.sortQuestion = function (sortOn) {
 				homeModel.page = 1;
-				homeModel.totalLength = 0;
 				homeModel.questions = [];
 				switch (sortOn) {
 				case 'newest':
-					homeModel.sort = '-dt_create';
+					homeModel.sort = 'createdat DESC';
 					break;
 				case 'votes':
-					homeModel.sort = '-actions.votes.total';
+					homeModel.sort = 'numbervote DESC';
 					break;
-				case 'active':
-					homeModel.sort = '-dt_update';
+				case 'unanswered':
+					homeModel.sort = 'numberreply DESC';
 					break;
 				default:
-					homeModel.sort = '-dt_create';
+					homeModel.sort = 'createdat DESC';
 					break;
 				}
 
 				homeModel.loadQuestions({
-					sort: homeModel.sort,
-					page: homeModel.page,
-					per_page: homeModel.per_page,
-					populate_owner: true,
-					populate: true
+					order: homeModel.sort,
+					skip: (homeModel.page - 1) * homeModel.per_page,
+					limit: homeModel.per_page
 				});
 			};
 
       homeModel.sortQuestion();
+      homeModel.countQuestions();
 		}
 	]);

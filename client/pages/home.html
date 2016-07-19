@@ -3,16 +3,14 @@
   <div class="col-md-9">
     <div class="tabs-warp question-tab">
       <ul class="tabs">
+        <div class="col-md-6"></div>
         <div class="col-md-6">
-          <h4><strong>Câu hỏi</strong></h4>
-        </div>
-        <div class="col-md-6">
-          <li class="tab"><a ng-class="{current : home.sort==='-dt_create'}"
+          <li class="tab"><a ng-class="{current : home.sort==='createdat DESC'}"
                              ng-click="home.sortQuestion('newest')">Mới nhất</a></li>
-          <li class="tab"><a ng-class="{current : home.sort === '-actions.votes.total'}"
+          <li class="tab"><a ng-class="{current : home.sort === 'numbervote DESC'}"
                              ng-click="home.sortQuestion('votes')">Hot!</a></li>
-          <li class="tab"><a ng-class="{current : home.sort === '-dt_update'}"
-                             ng-click="home.sortQuestion('active')">Chờ bạn trả lời</a></li>
+          <li class="tab"><a ng-class="{current : home.sort === 'numberreply DESC'}"
+                             ng-click="home.sortQuestion('unanswered')">Chờ bạn trả lời</a></li>
         </div>
       </ul>
 
@@ -56,8 +54,20 @@
               <div class="clearfix"></div>
             </div>
           </article>
+
         </div>
       </div>
+    </div>
+    <div class="pagination">
+      <pagination
+        ng-model="home.page"
+        total-items="home.total_count"
+        items-per-page = "home.per_page"
+        ng-change="home.loadPage(home.page)"
+        max-size="5"
+        next-text =">>"
+        previous-text="<<">
+      </pagination>
     </div>
   </div>
 
@@ -114,6 +124,24 @@
       </ul>
     </div>
 
+    <div class="widget widget_tag_cloud">
+      <h3 class="widget_title">Tags</h3>
+      <a href="/tags/1/php">PHP</a> <a href="/tags/2/python">Python</a> <a href="/tags/3/java">Java</a> <a
+      href="/tags/4/ruby">Ruby</a> <a href="/tags/5/phalcon-php">PhalconPHP</a> <a href="/tags/6/node-js">Nodejs</a> <a
+      href="/tags/7/linux">Linux</a> <a href="/tags/8/drupal">Drupal</a> <a href="/tags/9/wordpress">Wordpress</a> <a
+      href="/tags/10/joomla">Joomla</a> <a href="/tags/11/shell">Shell</a> <a href="/tags/12/mysql">Mysql</a> <a
+      href="/tags/13/cakephp">Cakephp</a> <a href="/tags/14/javascript">JavaScript</a> <a href="/tags/15/markdown">Markdown</a>
+      <a href="/tags/16/volt">Volt</a> <a href="/tags/17/offtopic">Offtopic</a> <a href="/tags/18/announcements">Announcements</a>
+      <a href="/tags/19/idea">Idea</a> <a href="/tags/20/download">Dơwnload</a> <a href="/tags/21/android">Android</a>
+      <a href="/tags/22/litpi">Litpi</a> <a href="/tags/23/jquery">Jquery</a> <a href="/tags/24/c">c</a> <a
+      href="/tags/25/css">Css</a> <a href="/tags/26/facebook">Facebook</a> <a href="/tags/27/apache">Apache</a> <a
+      href="/tags/28/codeigniter">Codeigniter</a> <a href="/tags/29/web-services">Web services</a> <a
+      href="/tags/30/performance">Performance</a> <a href="/tags/31/oracle">Oracle</a> <a href="/tags/32/zend">Zend</a>
+      <a href="/tags/33/unix">Unix</a> <a href="/tags/34/vagrant">Vagrant</a> <a href="/tags/35/devops">Devops</a> <a
+      href="/tags/36/discussions">Discussions</a> <a href="/tags/37/bounty">Bounty</a> <a
+      href="/tags/38/feature-request">Featue request</a> <a href="/tags/39/meta">Meta</a> <a href="/tags/40/phanbook">Phanbook</a>
+    </div>
+
     <div class="widget widget_recent_posts">
       <h3 class="widget_title">Câu hỏi mới</h3>
       <ul class="related-posts">
@@ -149,24 +177,6 @@
           <span> Jul 29/15 at 06:55</span>
         </li>
       </ul>
-    </div>
-
-    <div class="widget widget_tag_cloud">
-      <h3 class="widget_title">Tags</h3>
-      <a href="/tags/1/php">PHP</a> <a href="/tags/2/python">Python</a> <a href="/tags/3/java">Java</a> <a
-      href="/tags/4/ruby">Ruby</a> <a href="/tags/5/phalcon-php">PhalconPHP</a> <a href="/tags/6/node-js">Nodejs</a> <a
-      href="/tags/7/linux">Linux</a> <a href="/tags/8/drupal">Drupal</a> <a href="/tags/9/wordpress">Wordpress</a> <a
-      href="/tags/10/joomla">Joomla</a> <a href="/tags/11/shell">Shell</a> <a href="/tags/12/mysql">Mysql</a> <a
-      href="/tags/13/cakephp">Cakephp</a> <a href="/tags/14/javascript">JavaScript</a> <a href="/tags/15/markdown">Markdown</a>
-      <a href="/tags/16/volt">Volt</a> <a href="/tags/17/offtopic">Offtopic</a> <a href="/tags/18/announcements">Announcements</a>
-      <a href="/tags/19/idea">Idea</a> <a href="/tags/20/download">Dơwnload</a> <a href="/tags/21/android">Android</a>
-      <a href="/tags/22/litpi">Litpi</a> <a href="/tags/23/jquery">Jquery</a> <a href="/tags/24/c">c</a> <a
-      href="/tags/25/css">Css</a> <a href="/tags/26/facebook">Facebook</a> <a href="/tags/27/apache">Apache</a> <a
-      href="/tags/28/codeigniter">Codeigniter</a> <a href="/tags/29/web-services">Web services</a> <a
-      href="/tags/30/performance">Performance</a> <a href="/tags/31/oracle">Oracle</a> <a href="/tags/32/zend">Zend</a>
-      <a href="/tags/33/unix">Unix</a> <a href="/tags/34/vagrant">Vagrant</a> <a href="/tags/35/devops">Devops</a> <a
-      href="/tags/36/discussions">Discussions</a> <a href="/tags/37/bounty">Bounty</a> <a
-      href="/tags/38/feature-request">Featue request</a> <a href="/tags/39/meta">Meta</a> <a href="/tags/40/phanbook">Phanbook</a>
     </div>
 
     <div class="widget widget_social">

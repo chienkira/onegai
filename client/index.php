@@ -42,7 +42,7 @@
     <div class="header-search">
       <form method="get" action="/search">
         <input type="text" value="Tìm kiếm ..." onfocus="if(this.value=='Tìm kiếm ...')this.value='';"
-               onblur="if(this.value=='')this.value='Tìm kiếm ...';" name="q">
+               onblur="if(this.value=='')this.value='Tìm kiếm ...';" name="q" autocomplete="off">
         <button type="submit" class="search-submit"></button>
       </form>
     </div>

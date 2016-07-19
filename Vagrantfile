@@ -14,6 +14,6 @@ Vagrant.configure("2") do |config|
   # config.vm.network "public_network"
 
   # Share an additional folder to the guest VM.
-  config.vm.synced_folder "/Users/kira/Working/onegai/", "/var/www/html"
+  config.vm.synced_folder "./", "/var/www/html"
 
 end
