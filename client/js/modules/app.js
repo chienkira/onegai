@@ -7,7 +7,7 @@ angular
 	.module('onegai')
 	.config(function ($stateProvider, $urlRouterProvider, $provide) {
 
-		/* Textangular options, same options as StackOverflow */
+		/* Text angular options, same options as StackOverflow */
 		$provide.decorator('taOptions', ['$delegate',
 			function (taOptions) {
 				taOptions.toolbar =
@@ -23,32 +23,14 @@ angular
 			}
 		]);
 
+    /* Route configuration */
 		$urlRouterProvider.otherwise('/');
-
 		$stateProvider
 			.state('home', {
 				url: '/',
 				templateUrl: 'pages/home.html',
 				controller: 'homeCtrl',
 				controllerAs: 'home'
-			})
-			.state('ask', {
-				url: '/questions/ask',
-				templateUrl: 'pages/ask.html',
-				controller: 'askCtrl',
-				controllerAs: 'askModel'
-			})
-			.state('questions', {
-				url: '/questions/:id',
-				templateUrl: 'pages/question.html',
-				controller: 'answerCtrl',
-				controllerAs: 'answer',
-				resolve: {
-					/* Populating the question with the related answers */
-					question: function ($stateParams, questionsService) {
-						return questionsService.getById($stateParams.id);
-					}
-				}
 			})
 			.state('tags', {
 				url: '/tags',
@@ -61,15 +43,16 @@ angular
 				templateUrl: 'pages/users.html',
 				controller: 'usersCtrl',
 				controllerAs: 'usersModel',
-				resolve: {
-					/* Getting all users */
-					users: function (usersService) {
-						return usersService.getUsers();
-					}
-				}
-			});
+			})
+      .state('ask', {
+        url: '/questions/ask',
+        templateUrl: 'pages/ask.html',
+        controller: 'askCtrl',
+        controllerAs: 'askModel'
+      });
 	});
 
+/* RestAngular  */
 angular
   .module('onegai')
   .config(['RestangularProvider', function (RestangularProvider) {

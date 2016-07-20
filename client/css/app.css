@@ -273,6 +273,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
+    text-decoration: none;
 }
 .navigation li:hover ul {
     display: block;
@@ -684,7 +685,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     padding: 15px;
     border: 1px solid #dedede;
     background: #FFF;
@@ -693,24 +694,33 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
     box-shadow: 0 0 5px #dedede;
     position: relative;
 }
-.tab-inner .question:first-child {
-    margin-top: 0;
-}
 .question-inner {
     position: relative;
     margin-left: 101px;
 }
 .question-tab .tab a {
-    color: #2f3239;
+    color: #848d95;
     font-size: 15px;
     font-weight: normal;
     background-color: transparent;
+    text-decoration: none;
+}
+.question-tab .tab a.selected {
+    color: #000;
+    font-size: 17px;
+    background-color: #FFF;
+    box-shadow: 0 0 5px #dedede;
+    border: 1px solid #dedede;
+    border-bottom-color: #FFF;
+    z-index: 999;
 }
 .question-tab .tab a:hover {
-    color: #2f3239;
+    color: #000;
+    background-color: rgba(132,141,149,0.05);
 }
-.question-tab .tab a.current:hover {
-    color: #FFF;
+.question-tab .tab a.selected:hover {
+    color: #000;
+    background-color: #FFF;
 }
 .question-tab .tab-inner-warp {
     background: transparent;
@@ -852,7 +862,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
     overflow: hidden;
     font-size: 22px;
     font-weight: bold;
-    padding-right: 161px;
+    padding-right: 16px;
 }
 .question h2 a {
     color: #2f3239;

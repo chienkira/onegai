@@ -7,11 +7,11 @@
       <ul class="tabs">
         <div class="col-md-6"></div>
         <div class="col-md-6">
-          <li class="tab"><a ng-class="{current : home.sort==='createdat DESC'}"
+          <li class="tab"><a ng-class="{selected : home.sort==='createdat DESC'}"
                              ng-click="home.sortQuestion('newest')">Mới nhất</a></li>
-          <li class="tab"><a ng-class="{current : home.sort === 'numbervote DESC'}"
+          <li class="tab"><a ng-class="{selected : home.sort === 'numbervote DESC'}"
                              ng-click="home.sortQuestion('votes')">Hot!</a></li>
-          <li class="tab"><a ng-class="{current : home.sort === 'numberreply ASC'}"
+          <li class="tab"><a ng-class="{selected : home.sort === 'numberreply ASC'}"
                              ng-click="home.sortQuestion('unanswered')">Chờ bạn trả lời</a></li>
         </div>
       </ul>
@@ -20,7 +20,7 @@
         <div class="tab-inner">
           <article class="question question-type-normal" ng-repeat="q in home.questions">
             <h2>
-              <a ui-sref="questions({ id:'{{q.id}}' })">{{q.title}}</a>
+              <a ui-sref="questions({ id:'{{q.id}}' })">{{q.title | limitTo: 100}}{{q.title.length > 100 ? '...' : ''}}</a>
             </h2>
             <span ng-repeat="tag in q.instance.tags"><a class="question-report">{{tag.name}}</a></span>
             <div class="question-author">
