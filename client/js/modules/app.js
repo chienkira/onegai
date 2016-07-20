@@ -38,11 +38,17 @@ angular
 				controller: 'tagsCtrl',
 				controllerAs: 'tagsModel'
 			})
+      .state('login', {
+        url: '/users/login',
+        templateUrl: 'pages/login.html',
+        controller: 'usersCtrl',
+        controllerAs: 'usersModel'
+      })
 			.state('users', {
 				url: '/users',
 				templateUrl: 'pages/users.html',
 				controller: 'usersCtrl',
-				controllerAs: 'usersModel',
+				controllerAs: 'usersModel'
 			})
       .state('ask', {
         url: '/questions/ask',
