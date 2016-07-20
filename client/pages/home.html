@@ -36,9 +36,9 @@
               </div>
               <div class="question-details">
                 <span class="question-answered" ng-class="{
-                  'question-answered-done' : q.numberreply > 0 && q.acceptedanswer
+                  'question-answered-done' : q.numberreply > 0 && q.acceptedanswer == 'Y'
                   }">
-                  <i class="fa fa-check"></i>{{q.numberreply > 0 && q.acceptedanswer ? 'solved' : 'in progress'}}
+                  <i class="fa fa-check"></i>{{q.numberreply > 0 && q.acceptedanswer == 'Y' ? 'solved' : 'in progress'}}
                 </span>
               </div>
               <span class="question-favorite iam-subscribe" data-object-id="30">
@@ -70,7 +70,8 @@
         force-ellipses="true"
         ng-change="home.loadPage(home.page)"
         first-text="Đầu"
-        last-text="Cuối"
+        last-text="Cuối({{home.total_page}})"
+        direction-links="false"
         next-text =">"
         previous-text="<">
       </pagination>
@@ -102,38 +103,14 @@
     </div>
 
     <div class="widget widget_recent_posts">
-      <h3 class="widget_title">Câu hỏi mới</h3>
+      <h3 class="widget_title">&nbsp;&nbsp;&nbsp;&nbsp;Câu hỏi mới</h3>
       <ul class="related-posts">
-        <li class="related-item">
+        <li class="related-item" ng-repeat="nq in home.new_arrived_questions">
           <h3>
-            <a href="/questions/28/collection-phalcon-tips-and-tricks">Collection Phalcon tips and tricks</a></h3>
+            <a ui-sref="questions({ id:'{{nq.id}}' })">{{nq.title | limitTo: 50}}{{nq.title.length > 50 ? '...' : ''}}</a>
+          </h3>
           <div class="clear"></div>
-          <span> Jul 29/15 at 06:58</span>
-        </li>
-        <li class="related-item">
-          <h3>
-            <a href="/questions/25/which-linux-distro-for-production-server">Which Linux distro for production
-              server?</a></h3>
-          <div class="clear"></div>
-          <span> Jul 29/15 at 06:51</span>
-        </li>
-        <li class="related-item">
-          <h3>
-            <a href="/questions/1/wellcome-to-the-phanbook">Wellcome to the Phanbook</a></h3>
-          <div class="clear"></div>
-          <span> Jul 4/15 at 02:51</span>
-        </li>
-        <li class="related-item">
-          <h3>
-            <a href="/questions/21/phanbook-+-meetup-integration"> Phanbook + Meetup integration </a></h3>
-          <div class="clear"></div>
-          <span> Jul 19/15 at 03:48</span>
-        </li>
-        <li class="related-item">
-          <h3>
-            <a href="/questions/26/phalcon-206-released">Phalcon 2.0.6 released</a></h3>
-          <div class="clear"></div>
-          <span> Jul 29/15 at 06:55</span>
+          <span>{{nq.createdat | date:"mediumDate"}}</span>
         </li>
       </ul>
     </div>

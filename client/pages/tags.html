@@ -1,38 +1,27 @@
 <div class="row">
+  <input type="text" ng-change="tagsModel.search()" ng-model="tagsModel.searchTag"></input>
   <div class="col-md-12">
-
-    <div class="row subheader">
-      <div class="col-md-9">
-        <h4><strong>Tags</strong></h4>
+    <div class="row carousel slide">
+      <div class="carousel-inner">
+        <div class="item active" ng-repeat="tag in tagsModel.tags">
+          <ul class="thumbnails">
+            <li class="col-sm-3">
+              <div class="fff">
+                <div class="caption">
+                  <h4>
+                    <a>{{tag.name}}</a>
+                    <span class="item-multiplier">
+                      &nbsp;<span class="item-multiplier-x">×</span>&nbsp;
+                      <span class="item-multiplier-count">{{tag.numberposts}}</span>
+                    </span>
+                  </h4>
+                  <p>{{tag.description | limitTo: 200}}{{tag.description.length > 200 ? '...' : ''}}</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="col-md-3 pull-right" id="tabs">
-         <a ng-class="{youarehere : (tagsModel.order === '-count')}"  ng-click="tagsModel.orderTags('-count')">popular</a>
-        <a ng-class="{youarehere : (tagsModel.order === 'name')}"  ng-click="tagsModel.orderTags('name')">name</a>
-        <a ng-class="{youarehere : (tagsModel.order === '-dt_create')}" ng-click="tagsModel.orderTags('-dt_create')">new</a>
-      </div>
     </div>
-
-    <div class="row page-description">
-    	<div class="col-md-12">
-    		<p>
-    			A tag is a keyword or label that categorizes your question with other, similar questions. Using the right tags makes it easier for others to find and answer your question.
-    		</p>
-    	</div>
-  		<div class="col-md-12">
-    		Type to find tags: <input type="text" ng-change="tagsModel.search()" ng-model="tagsModel.searchTag"></input>
-    	</div>
-    </div>
-
-    <div class="row tag-container">
-    	<div class="col-md-3 tag-cell animate"  ng-repeat="tag in tagsModel.tags.instance"  >
-    		<a class="post-tag">{{tag.instance.name}}</a>
-    		<span class="item-multiplier">
-    			<span class="item-multiplier-x">×</span>&nbsp;
-    			<span class="item-multiplier-count">{{tag.instance.count}}</span>
-    		</span>
-    		<div class="excerpt">{{tag.instance.excerpt}}</div>
-    	</div>
-    </div>
-
-	</div>
-</div>    
+  </div>
+</div>

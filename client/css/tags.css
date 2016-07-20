@@ -1,36 +1,53 @@
-.page-description {
-	color: #333;
-	font-size: 120%;
-	line-height: 120%;
+.thumbnails li> .fff .caption {
+  background:#fff !important;
+  padding:10px;
 }
 
-.page-description p{
-	margin-bottom: 1em;
+ul.thumbnails {
+  margin-bottom: 0px;
 }
 
-.item-multiplier {
-	font-size: 90%;
-	font-weight: normal;
-	margin-right: 4px;
-	color: #999;
+.item-multiplier-x .item-multiplier-count{
+  font-size: 12px;
 }
 
-.excerpt {
-	font-size: 12px;
-	height: 42px;
-	line-height: 14px;
-	overflow: hidden;
-	margin-bottom: 4px;
-
+/* Thumbnail Box */
+.caption h4 {
+  color: #444;
 }
 
-.tag-container{
-	margin-top: 20px;
+.caption p {
+  color: #999;
 }
 
-.tag-cell {
-	border-bottom: 1px dotted #E0E0E0;
-	padding-bottom: 12px;
-	padding-right: 6px;
-	padding-top: 6px;
+/* Carousel Control */
+.control-box {
+  text-align: right;
+  width: 100%;
+}
+.carousel-control{
+  background: #666;
+  border: 0px;
+  border-radius: 0px;
+  display: inline-block;
+  font-size: 34px;
+  font-weight: 200;
+  line-height: 18px;
+  opacity: 0.5;
+  padding: 4px 10px 0px;
+  position: static;
+  height: 30px;
+  width: 15px;
+}
+
+li { list-style-type:none;}
+
+::selection { background: #ff5e99; color: #FFFFFF; text-shadow: 0; }
+::-moz-selection { background: #ff5e99; color: #FFFFFF; }
+.thumbnail-user-list img{
+  width: 360px;
+  height: 170px;
+}
+.pagination {
+  margin-right: 13px;
 }

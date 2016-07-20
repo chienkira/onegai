@@ -17,23 +17,26 @@ angular
       homeModel.questions = [];
       homeModel.tags = [];
       homeModel.top_users = [];
+      homeModel.new_arrived_questions = [];
       homeModel.page = 1;
       homeModel.per_page = 10;
       homeModel.total_count = homeModel.per_page;
-      homeModel.total_page = homeModel.total_count / homeModel.per_page + 1;
+      homeModel.total_page = Math.floor(homeModel.total_count / homeModel.per_page) + 1;
       homeModel.sort = 'createdat DESC';
+      homeModel.whereCond = {};
 
       /* Count number of existing questions on database */
       homeModel.countQuestions = function () {
-        questionsService.customGET('count')
+        questionsService.customGET('count', {where: homeModel.whereCond})
           .then(function (result) {
             homeModel.total_count = result.count;
-            homeModel.total_page = homeModel.total_count / homeModel.per_page + 1;
+            homeModel.total_page = Math.floor(homeModel.total_count / homeModel.per_page) + 1;
           });
       };
 
       /* Load the questions given a sort parameter */
       homeModel.loadQuestions = function (params) {
+        homeModel.countQuestions();
         homeModel.questionsPromise = questionsService.getList({filter: params});
         homeModel.questionsPromise.then(
           function (result) {
@@ -43,7 +46,6 @@ angular
               })
             } else {
               homeModel.questions = result;
-              homeModel.totalLength = homeModel.questions.length;
             }
           },
           function (res) {
@@ -97,13 +99,34 @@ angular
         });
       };
 
+      /* Load new arrived questions */
+      homeModel.loadNewArrivedQuestions = function () {
+        homeModel.newArrivedQuestions = questionsService.getList({
+          filter: {
+            where: {acceptedanswer: 'N'},
+            order: 'createdat DESC',
+            limit: 5
+          }
+        });
+        homeModel.newArrivedQuestions.then(function (result) {
+          if (homeModel.new_arrived_questions.add) {
+            result.forEach(function (item) {
+              homeModel.new_arrived_questions.add(item);
+            })
+          } else {
+            homeModel.new_arrived_questions = result;
+          }
+        });
+      };
+
       /* Listener on pagination */
       homeModel.loadPage = function (page) {
         homeModel.page = page;
         var params = {
           order: homeModel.sort,
           skip: (homeModel.page - 1) * homeModel.per_page,
-          limit: homeModel.per_page
+          limit: homeModel.per_page,
+          where: homeModel.whereCond
         };
         homeModel.loadQuestions(params);
       };
@@ -111,6 +134,7 @@ angular
       /* Listener on tab */
       homeModel.sortQuestion = function (sortOn) {
         homeModel.page = 1;
+        homeModel.whereCond = {};
         switch (sortOn) {
           case 'newest':
             homeModel.sort = 'createdat DESC';
@@ -120,6 +144,7 @@ angular
             break;
           case 'unanswered':
             homeModel.sort = 'numberreply ASC';
+            homeModel.whereCond = {acceptedanswer: 'N'};
             break;
           default:
             homeModel.sort = 'createdat DESC';
@@ -129,13 +154,14 @@ angular
         homeModel.loadQuestions({
           order: homeModel.sort,
           skip: (homeModel.page - 1) * homeModel.per_page,
-          limit: homeModel.per_page
+          limit: homeModel.per_page,
+          where: homeModel.whereCond
         });
       };
 
-      homeModel.countQuestions();
       homeModel.loadTags();
       homeModel.loadTopUsers();
+      homeModel.loadNewArrivedQuestions();
       homeModel.sortQuestion();
     }
   ]);

@@ -604,7 +604,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
     right: 7px;
 }
 /* page-content */
-.container.main-content {
+.container .main-content {
     min-height: 600px;
     position: relative;
     z-index: 991;
