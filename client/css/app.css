@@ -220,7 +220,7 @@ body {
 }
 /* header */
 #header {
-    height: 66px;
+    height: 76px;
     position: relative;
     background-color: #2f3239;
 }
@@ -230,7 +230,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 #header .logo {
     margin-left: 10px;
     float: left;
-    line-height: 66px;
+    line-height: 76px;
     -webkit-transition: padding 0.8s;
     -moz-transition: padding 0.8s;
     transition: padding 0.8s;
@@ -269,7 +269,7 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
     position: relative;
     float: left;
     padding: 0 9px;
-    line-height: 36px;
+    line-height: 46px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
