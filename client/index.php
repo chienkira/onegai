@@ -49,11 +49,11 @@
     </div>
   </section><!-- End container -->
 </div><!-- End header-top -->
+<!-- Header -->
+<?php include 'partials/header.php';?>
 <!-- Main container -->
 <div class="container" style="padding-bottom: 30px;">
   <div class="row">
-    <!-- Header -->
-    <?php include 'partials/header.php';?>
     <!-- Main content -->
     <div ui-view></div>
   </div>
@@ -78,7 +78,7 @@
 <script src="<?= $___env['webroot']?>js/lib/ui-bootstrap-0.11.0.min.js"></script>
 <!-- REST Service -->
 <script src="<?= $___env['webroot']?>js/services/main.js"></script>
-<script src="<?= $___env['webroot']?>js/services/userService.js"></script>
+<script src="<?= $___env['webroot']?>js/services/usersService.js"></script>
 <script src="<?= $___env['webroot']?>js/services/tagsService.js"></script>
 <script src="<?= $___env['webroot']?>js/services/questionsService.js"></script>
 <script src="<?= $___env['webroot']?>js/services/answersService.js"></script>

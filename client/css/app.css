@@ -700,9 +700,6 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
     position: relative;
     margin-left: 101px;
 }
-.question-tab .tabs {
-    margin-bottom: 30px;
-}
 .question-tab .tab a {
     color: #2f3239;
     font-size: 15px;
@@ -1994,10 +1991,10 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 }
 /* Highest points Widget */
 .widget_highest_points ul li {
-    padding-bottom: 15px;
+    padding-bottom: 10px;
 }
 .widget_highest_points li h6 {
-    margin: 10px 0 5px;
+    margin: 5px 0 2px;
     font-weight: bold;
 }
 .widget_highest_points li h6 a:hover {
@@ -2013,8 +2010,8 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
     float: left;
     display: block;
     overflow: hidden;
-    width: 71px;
-    height: 71px;
+    width: 51px;
+    height: 51px;
     position: relative;
     margin-right: 20px;
     overflow: hidden;
@@ -2027,32 +2024,14 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 .author-img img {
     display: block;
     float: left;
-    width: 65px;
-    height: 65px;
+    width: 48px;
+    height: 48px;
     overflow: hidden;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
 }
-.widget_highest_points a:before {
-    position: absolute;
-    width: 65px;
-    height: 65px;
-    top: 2px;
-    z-index: 99;
-    display: block;
-    font-family: "FontAwesome";
-    text-align: center;
-    line-height: 65px;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-}
-.widget_highest_points .author-img a:hover:before {
-    content: "\f0fe";
-    opacity: 0.9;
-    filter: alpha(opacity=90);
-}
+
 /* Search Widget */
 .widget_search form {
     position: relative;
@@ -5210,7 +5189,9 @@ p a,li a, a:hover,.button.normal:hover,span.color,#footer a:hover,.widget a:hove
     border-color: #0f6b59;
 }
 #header .logo span {
-    color: #0f6b59;
+    color: #FFF;
+    font: 32px "FontAwesome";
+    vertical-align: middle;
 }
 #site-logo {
     width: 60px;

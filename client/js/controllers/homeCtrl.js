@@ -10,11 +10,13 @@ when we need to change the sort criteria.
 */
 angular
 	.module('onegai')
-	.controller('homeCtrl', ['questionsService',
-		function (questionsService) {
+	.controller('homeCtrl', ['questionsService', 'tagsService', 'usersService',
+		function (questionsService, tagsService, userService) {
 			var homeModel = this;
 
 			homeModel.questions = [];
+      homeModel.tags = [];
+      homeModel.top_users = [];
 			homeModel.page = 1;
 			homeModel.per_page = 10;
       homeModel.total_count = homeModel.per_page;
@@ -30,7 +32,7 @@ angular
           });
       };
 
-			/* Loads the questions given a sort parameter */
+			/* Load the questions given a sort parameter */
 			homeModel.loadQuestions = function (params) {
         homeModel.questionsPromise = questionsService.getList({filter: params});
         homeModel.questionsPromise.then(
@@ -49,6 +51,51 @@ angular
           });
 			};
 
+			/* Load Tags*/
+      homeModel.loadTags = function () {
+        tagsService.getList({filter: {limit: 30}})
+          .then(function (result) {
+            if (homeModel.tags.add) {
+              result.forEach(function (item) {
+                homeModel.tags.add(item);
+              })
+            } else {
+              homeModel.tags = result;
+            }
+          });
+      };
+
+      /* Load Top Users */
+      homeModel.loadTopUsers = function () {
+        userService.getList({filter: {
+          field: {firstname: true, lastname: true,  username: true, vote: true, votepoint: true, gender: true},
+          order: 'vote DESC',
+          limit: 7
+        }})
+          .then(function (result) {
+            result.forEach(function (item) {
+              item.display_name = "";
+              if (item.firstname) {
+                item.display_name += item.firstname;
+              }
+              if (item.lastname) {
+                item.display_name += " " + item.lastname;
+              }
+              if(item.display_name.length === 0) {
+                item.display_name = item.username;
+              }
+            });
+            if (homeModel.top_users.add) {
+              result.forEach(function (item) {
+                homeModel.top_users.add(item);
+              })
+            } else {
+              homeModel.top_users = result;
+            }
+          });
+      };
+
+			/* Listener on pagination */
 			homeModel.loadPage = function (page) {
         homeModel.page = page;
         var params = {
@@ -86,5 +133,7 @@ angular
 
       homeModel.countQuestions();
       homeModel.sortQuestion();
+      homeModel.loadTags();
+      homeModel.loadTopUsers();
 		}
 	]);

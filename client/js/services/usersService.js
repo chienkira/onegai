@@ -3,7 +3,7 @@
 
 angular
 	.module('onegai.service')
-	.factory('userService', ['$q', 'Restangular', function ($q, Restangular) {
+	.factory('usersService', ['$q', 'Restangular', function ($q, Restangular) {
 
     //Use Restangular
     var factory = Restangular.all("users");
