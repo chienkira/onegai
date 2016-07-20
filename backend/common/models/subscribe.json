@@ -44,7 +44,7 @@
       "_selectable": false
     },
     "status": {
-      "type": "Boolean",
+      "type": "String",
       "required": true,
       "length": 1,
       "precision": null,

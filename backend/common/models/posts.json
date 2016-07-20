@@ -188,7 +188,7 @@
       "_selectable": false
     },
     "sticked": {
-      "type": "Boolean",
+      "type": "String",
       "required": false,
       "length": 1,
       "precision": null,
@@ -268,7 +268,7 @@
       "_selectable": true
     },
     "locked": {
-      "type": "Boolean",
+      "type": "String",
       "required": false,
       "length": 1,
       "precision": null,
@@ -300,7 +300,7 @@
       "_selectable": true
     },
     "acceptedanswer": {
-      "type": "Boolean",
+      "type": "String",
       "required": false,
       "length": 1,
       "precision": null,

@@ -92,7 +92,7 @@
       "_selectable": true
     },
     "nobounty": {
-      "type": "Boolean",
+      "type": "String",
       "required": true,
       "length": 1,
       "precision": null,
@@ -108,7 +108,7 @@
       "_selectable": false
     },
     "nodigest": {
-      "type": "Boolean",
+      "type": "String",
       "required": true,
       "length": 1,
       "precision": null,

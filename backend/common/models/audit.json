@@ -60,7 +60,7 @@
       "_selectable": false
     },
     "type": {
-      "type": "Boolean",
+      "type": "String",
       "required": true,
       "length": 1,
       "precision": null,

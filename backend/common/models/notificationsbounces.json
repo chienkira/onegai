@@ -92,7 +92,7 @@
       "_selectable": false
     },
     "reported": {
-      "type": "Boolean",
+      "type": "String",
       "required": true,
       "length": 1,
       "precision": null,

@@ -140,7 +140,7 @@
       "_selectable": false
     },
     "accepted": {
-      "type": "Boolean",
+      "type": "String",
       "required": false,
       "length": 1,
       "precision": null,

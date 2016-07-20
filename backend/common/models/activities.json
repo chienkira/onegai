@@ -27,7 +27,7 @@
       "_selectable": true
     },
     "type": {
-      "type": "Boolean",
+      "type": "String",
       "required": true,
       "length": 1,
       "precision": null,
