@@ -485,124 +485,17 @@ div[class*="slider_shadow"]:before, div[class^="header_shadow"] {
 .social_icons ul li.tumblr a:hover {
     color: #2d4961;
 }
-/* ask-me */
-.ask-me {
-    padding-bottom: 0 !important;
-    height: auto;
-    margin-bottom: 30px !important;
+/* tags */
+.tag-search {
+  margin-bottom: 10px;
 }
-.ask-me .col-md-3 {
-    padding-top: 0;
-    width: 100%;
-    text-align: center;
+.tag-search .input-lg,.input-group-addon{
+  background-color: #fff;
 }
-.ask-me .col-md-9 {
-    margin: auto;
-    float: none;
+.input-lg {
+  height: 36px;
 }
-.ask-me .col-md-3 a,.ask-me .col-md-12 a {
-    font-size: 15px;
-    font-weight: bold;
-}
-.ask-me .col-md-3 a:hover {
-    background-color: #373b43 !important;
-}
-.ask-me h2 {
-    font-size: 25px;
-    margin-bottom: 30px;
-}
-.ask-me p {
-    font-size: 13px !important;
-    line-height: 22px;
-}
-.ask-me .col-md-12 p {
-    margin-bottom: 30px !important;
-}
-.ask-me .col-md-9 form {
-    /*background: url("../img/chrome.png") no-repeat center bottom;*/
-    height: 324px;
-    width: 100%;
-    background-size: 100% 100%;
-    float: right;
-    margin-top: 40px;
-}
-.ask-me .col-md-9 p {
-    margin: 90px 20px 20px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    position: relative;
-}
-.ask-me .col-md-9 p textarea {
-    background: rgba(255,115,97,0.20);
-    border: none;
-    color: #2f3239;
-    font-size: 13px;
-    font-style: italic;
-    resize: none;
-    height: 214px;
-    text-indent: 38px;
-    line-height: 30px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-}
-.ask-me .col-md-9 p i,.ask-me .col-md-12 p i {
-    position: absolute;
-    width: 28px;
-    height: 28px;
-    line-height: 28px;
-    text-align: center;
-    font-size: 14px;
-    background-color: #2f3239;
-    top: 10px;
-    left: 10px;
-}
-.ask-me .publish-question {
-    margin: 0;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 14px;
-    font-weight: bold;
-}
-.ask-me .box_icon.box_warp.box_no_border {
-    margin-bottom: 0;
-    position: relative;
-    z-index: 991;
-}
-.ask-me .form-style-2 {
-    position: relative;
-}
-.ask-me .col-md-12 {
-    text-align: center;
-    padding-top: 41px;
-}
-.ask-me .col-md-12 a {
-    margin-right: 30px;
-}
-.ask-me .col-md-12 a:hover {
-    background-color: #373b43 !important;
-}
-.ask-me .col-md-12 p input {
-    background-color: #FFF;
-    border: none;
-    color: #2f3239;
-    font-size: 13px;
-    font-style: italic;
-    resize: none;
-    text-indent: 38px;
-    line-height: 48px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    height: 48px;
-    margin-top: 71px;
-}
-.ask-me .col-md-12 .publish-question {
-    bottom: 7px;
-    right: 7px;
-}
+
 /* page-content */
 .container .main-content {
     min-height: 600px;
