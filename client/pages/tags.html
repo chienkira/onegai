@@ -1,12 +1,21 @@
 <div class="row">
-  <div class="input-group col-md-2 tag-search">
-    <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
-    <input type="text" ng-change="tagsModel.search()" ng-model="tagsModel.searchTag" id="search-input"
-           class="form-control input-lg" placeholder="Tìm kiếm " autocomplete="off" spellcheck="false" autocorrect="off"
-           tabindex="1">
-  </div>
   <div class="col-md-12">
-    <div class="row carousel slide">
+    <!--Question list-->
+    <div class="tabs-warp question-tab">
+      <!--Tab-->
+      <ul class="tabs">
+        <div class="col-md-8">
+          <div class="input-group tag-search col-md-4">
+            <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+            <input type="text" ng-change="tagsModel.search()" ng-model="tagsModel.searchTag" id="search-input"
+                   class="form-control input-lg" placeholder="Tìm kiếm " autocomplete="off" spellcheck="false"
+                   autocorrect="off"
+                   tabindex="1">
+          </div>
+        </div>
+      </ul>
+    </div>
+    <div class="row carousel slide" cg-busy="{promise:tagsModel.tagsPromise,message:'Onegai...',backdrop:true}">
       <div class="carousel-inner">
         <div class="item active" ng-repeat="tag in tagsModel.tags">
           <ul class="thumbnails">

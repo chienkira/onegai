@@ -62,7 +62,7 @@ angular
 angular
   .module('onegai')
   .config(['RestangularProvider', function (RestangularProvider) {
-    RestangularProvider.setBaseUrl('http://kira-dev.jp:3000/api');
+    RestangularProvider.setBaseUrl('http://107.170.162.158:3000/api');
   }]);
 	/*
 		Before starting the application we're saving the user if present in the rootScope

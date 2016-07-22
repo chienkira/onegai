@@ -1,34 +1,55 @@
 <div class="row">
   <div class="col-md-12">
-
-    <div class="row subheader">
-      <div class="col-md-9">
-        <h4><strong>Users</strong></h4>
+    <!--Question list-->
+    <div class="tabs-warp question-tab">
+      <!--Tab-->
+      <ul class="tabs">
+        <div class="col-md-8">
+          <div class="input-group tag-search col-md-4">
+            <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+            <input type="text" ng-change="usersModel.searchUser()" ng-model="usersModel.searchKey" id="search-input"
+                   class="form-control input-lg" placeholder="Tìm kiếm " autocomplete="off" spellcheck="false"
+                   autocorrect="off"
+                   tabindex="1">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <li class="tab"><a ng-class="{selected : usersModel.sort==='karma DESC'}"
+                             ng-click="usersModel.sortUser('votes')">Nổi tiếng</a></li>
+          <li class="tab"><a ng-class="{selected : usersModel.sort === 'createdat DESC'}"
+                             ng-click="usersModel.sortUser('newest')">Mới đến</a></li>
+        </div>
+      </ul>
+      <!--List-->
+      <div class="tab-inner-warp" cg-busy="{promise:usersModel.userPromise,message:'Onegai...',backdrop:true}">
+        <div id="user-browser">
+          <table>
+            <tr ng-repeat="u_row in usersModel.users">
+              <td ng-repeat="u in u_row">
+                <div class="user-info  user-hover">
+                  <div class="user-gravatar48">
+                    <a href="/users/{{u.id}}/{{u.username}}">
+                      <div class="gravatar-wrapper-48">
+                        <img
+                          src="http://www.gravatar.com/avatar/62367caa1457b12c055140b79456f2fd?s=200&d=identicon&r=pg"
+                          alt="{{u.display_name}}" width="48" height="48">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="user-details">
+                    <a href="/users/{{u.id}}/{{u.username}}">{{u.display_name}}</a>
+                    <span class="user-location">{{u.createdat | date:"mediumDate"}}</span>
+                    <div class="-flair">
+                      <span class="reputation-score" title="reputation this week: 1,697 total reputation: 103,112"
+                            dir="ltr">{{u.karma}}</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
-      <div class="col-md-3 pull-right" id="tabs">
-        <a ng-class="{youarehere : usersModel.sortOnNewUsers}" ng-click="usersModel.sort('new')">new users</a>
-      </div>
     </div>
-
-    <div class="row page-description">
-  		<div class="col-md-12">
-    		Type to find users: <input type="text" ng-change="usersModel.search()" ng-model="usersModel.searchUser"></input>
-    	</div>
-    </div>
-
-    <div class="row tag-container">
-    	<div class="col-md-3 user-info" ng-repeat="user in usersModel.userList.instance">
-    		<div class="user-gravatar48">
-    			<img ng-src="{{user.instance.profileImg}}" style="width:48px; height:48px; float:left"  />
-    		</div>
-    		<div class="user-details-info">
-    			<a>{{user.instance.displayName}}</a>
-    			<br>
-    			<span class="user-location">{{user.instance.dt_create| date:"mediumDate"}}</span>
-    			<br>
-    		</div>
-    	</div>
-    </div>
-
-	</div>
-</div>    
+  </div>
+</div>

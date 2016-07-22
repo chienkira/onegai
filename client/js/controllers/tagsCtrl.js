@@ -7,11 +7,12 @@ angular
 
       tagsModel.order = 'numberposts DESC';
       tagsModel.searchTag = '';
-      tagsService.getList({
+      tagsModel.tagsPromise = tagsService.getList({
         filter: {
           sort: 'numberposts DESC'
         }
-      }).then(function (response) {
+      });
+      tagsModel.tagsPromise.then(function (response) {
         tagsModel.tags = response;
       });
 
@@ -21,7 +22,8 @@ angular
         var query = {
           where: {name: {like: reg}}
         };
-        tagsService.getList({filter: query}).then(function (response) {
+        tagsModel.tagsPromise = tagsService.getList({filter: query});
+        tagsModel.tagsPromise.then(function (response) {
           tagsModel.tags = response;
         });
       };
