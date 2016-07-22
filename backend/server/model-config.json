@@ -37,14 +37,6 @@
     "dataSource": "mysqlDs",
     "public": true
   },
-  "Audit": {
-    "dataSource": "mysqlDs",
-    "public": true
-  },
-  "Auditdetail": {
-    "dataSource": "mysqlDs",
-    "public": true
-  },
   "Comment": {
     "dataSource": "mysqlDs",
     "public": true
@@ -61,19 +53,7 @@
     "dataSource": "mysqlDs",
     "public": true
   },
-  "Notificationsbounces": {
-    "dataSource": "mysqlDs",
-    "public": true
-  },
   "Posts": {
-    "dataSource": "mysqlDs",
-    "public": true
-  },
-  "Postsbounties": {
-    "dataSource": "mysqlDs",
-    "public": true
-  },
-  "Postshistory": {
     "dataSource": "mysqlDs",
     "public": true
   },
@@ -82,10 +62,6 @@
     "public": true
   },
   "Postsnotifications": {
-    "dataSource": "mysqlDs",
-    "public": true
-  },
-  "Postsreplyhistory": {
     "dataSource": "mysqlDs",
     "public": true
   },
@@ -109,19 +85,7 @@
     "dataSource": "mysqlDs",
     "public": true
   },
-  "Successlogins": {
-    "dataSource": "mysqlDs",
-    "public": true
-  },
   "Tags": {
-    "dataSource": "mysqlDs",
-    "public": true
-  },
-  "Topictracking": {
-    "dataSource": "mysqlDs",
-    "public": true
-  },
-  "Template": {
     "dataSource": "mysqlDs",
     "public": true
   },

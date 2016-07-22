@@ -557,7 +557,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "usersbadges": {
+      "type": "hasMany",
+      "model": "Usersbadges",
+      "foreignKey": "usersId"
+    },
+    "noti": {
+      "type": "hasMany",
+      "model": "Notifications",
+      "foreignKey": "usersId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

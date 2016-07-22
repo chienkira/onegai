@@ -318,9 +318,14 @@
   },
   "validations": [],
   "relations": {
-    "PostHasManyTags": {
+    "Tags": {
+      "type": "hasAndBelongsToMany",
+      "model": "Tags",
+      "foreignKey": "id"
+    },
+    "postsreplies": {
       "type": "hasMany",
-      "model": "Poststags",
+      "model": "Postsreply",
       "foreignKey": "postsId"
     }
   },
