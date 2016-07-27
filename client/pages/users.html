@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <!--Question list-->
+    <!--Users list-->
     <div class="tabs-warp question-tab">
       <!--Tab-->
       <ul class="tabs">
@@ -21,33 +21,33 @@
         </div>
       </ul>
       <!--List-->
-      <div class="tab-inner-warp" cg-busy="{promise:usersModel.userPromise,message:'Onegai...',backdrop:true}">
-        <div id="user-browser">
-          <table>
-            <tr ng-repeat="u_row in usersModel.users">
-              <td ng-repeat="u in u_row">
-                <div class="user-info  user-hover">
-                  <div class="user-gravatar48">
-                    <a href="/users/{{u.id}}/{{u.username}}">
-                      <div class="gravatar-wrapper-48">
+      <div class="tab-inner-warp carousel slide" id="myCarousel"
+           cg-busy="{promise:usersModel.userPromise,message:'Onegai...',backdrop:true}">
+        <div id="user-browser" class="carousel-inner">
+          <div ng-repeat="u_row in usersModel.users">
+            <div class="item active" ng-repeat="u in u_row">
+              <ul class="thumbnails">
+                <li class="col-sm-2">
+                  <div class="fff">
+                    <div class="thumbnail-user-list">
+                      <a href="/users/{{u.id}}/{{u.username}}">
                         <img
                           src="http://www.gravatar.com/avatar/62367caa1457b12c055140b79456f2fd?s=200&d=identicon&r=pg"
-                          alt="{{u.display_name}}" width="48" height="48">
-                      </div>
-                    </a>
-                  </div>
-                  <div class="user-details">
-                    <a href="/users/{{u.id}}/{{u.username}}">{{u.display_name}}</a>
-                    <span class="user-location">{{u.createdat | date:"mediumDate"}}</span>
-                    <div class="-flair">
-                      <span class="reputation-score" title="reputation this week: 1,697 total reputation: 103,112"
-                            dir="ltr">{{u.karma}}</span>
+                          alt="{{u.display_name}}">
+                      </a>
+                    </div>
+                    <div class="caption">
+                      <h4><a href="/users/{{u.id}}/{{u.username}}">{{u.display_name}}</a></h4>
+                      <p><span class="reputation-score" title="reputation this week: 1,697 total reputation: 103,112"
+                               dir="ltr">{{u.karma}}</span> danh tiếng</p>
+                      <p><span class="user-location">Gia nhập {{u.createdat | date:"mediumDate"}}</span></p>
                     </div>
                   </div>
-                </div>
-              </td>
-            </tr>
-          </table>
+                </li>
+              </ul>
+            </div>
+          <div>&nbsp;</div>
+          </div>
         </div>
       </div>
     </div>

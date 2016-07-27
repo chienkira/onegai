@@ -3,11 +3,19 @@
 	margin-left: 5px;
 	overflow: hidden;
 	white-space: nowrap;
-
 }
 
 .user-info{
-		padding-bottom: 12px;
+  padding-bottom: 12px;
 	padding-right: 6px;
 	padding-top: 6px;
+}
+
+.users-page :hover {
+  background-color: #f4f8fb;
+  transition: background .1s ease-in-out;
+}
+
+.thumbnail-user-list img{
+  padding: 2px;
 }

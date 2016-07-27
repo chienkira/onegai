@@ -10,7 +10,7 @@ angular
       usersModel.searchKey = '';
       usersModel.users = [];
       usersModel.page = 1;
-      usersModel.per_page = 20;
+      usersModel.per_page = 30;
       usersModel.total_count = usersModel.per_page;
       usersModel.total_page = Math.floor(usersModel.total_count / usersModel.per_page) + 1;
 
@@ -37,7 +37,7 @@ angular
             } else {
               usersModel.users = result;
             }
-            usersModel.users = convertToRowsOf4(usersModel.users);
+            usersModel.users = convertToRowsOfN(usersModel.users);
           },
           function (res) {
             usersModel.users = [];
@@ -92,29 +92,27 @@ angular
         usersModel.userPromise = usersService.getList({filter: query});
         usersModel.userPromise.then(function (response) {
           response = addDisplayName(response);
-          usersModel.users = convertToRowsOf4(response);
+          usersModel.users = convertToRowsOfN(response);
         });
       };
 
       /*  */
-      function convertToRowsOf4(list) {
+      function convertToRowsOfN(list) {
         var newList = [];
         var row;
 
         for (var i = 0; i < list.length; i++) {
-          if (i % 4 == 0) { // every 4rd one we're going to start a new row
+          if (i % 6 == 0) { // every Nrd one we're going to start a new row
             if (row instanceof Array) {
               newList.push(row); // if the row exists add it to the newList
             }
             row = []; // initalize new row
           }
-
           row.push(list[i]); // add each item to the row
         }
 
         if (row.length > 0)
           newList.push(row);
-
         return newList;
       }
 

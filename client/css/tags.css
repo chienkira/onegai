@@ -44,10 +44,7 @@ li { list-style-type:none;}
 
 ::selection { background: #ff5e99; color: #FFFFFF; text-shadow: 0; }
 ::-moz-selection { background: #ff5e99; color: #FFFFFF; }
-.thumbnail-user-list img{
-  width: 360px;
-  height: 170px;
-}
+
 .pagination {
   margin-right: 13px;
 }

@@ -6,7 +6,7 @@ in the `$scope`: `cobj` and `questionSubmitted`.
 The former represent the new instance for the question
 while the latter is a boolean value to check that the
 question has been submitted succesfully.
-It also implement the function `getTags` for autocompleting
+It also implement the function `getTags` for auto-completing
 the tag that users can bind to the question.
 */
 angular
