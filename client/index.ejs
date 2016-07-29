@@ -29,14 +29,17 @@
       <ul>
         <li><a href="/contact"><i class="fa fa-headphones"></i>Hỗ trợ</a></li>
         <% if(typeof(user) !== 'undefined') {%>
-        <li><a ui-sref="user/"><i class="fa fa-user"></i><%= user.username %></a></li>
+        <li>
+          <a ui-sref="user/<%= user.id %>"><i class="fa fa-user"></i><%= user.username %></a>
+          <a href="/signout">&nbsp;&nbsp;<i class="fa fa-sign-out" aria-hidden="true"></i></a>
+        </li>
         <li>
           <a href="#"><span class="mail-status unread">1 </span><i class="fa fa-inbox"></i></a>
         </li>
         <% } else { %>
         <li><a href="/signin"><i class="fa fa-user"></i>Đăng nhập</a></li>
         <li>
-          <a href="/signin"><span class="mail-status unread"> </span><i class="fa fa-inbox"></i></a>
+          <a href="/signin"><span class="mail-status unread">0 </span><i class="fa fa-inbox"></i></a>
         </li>
         <% } %>
       </ul>

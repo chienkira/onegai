@@ -66,7 +66,7 @@ var signUpPost = function(req, res, next) {
 
    return usernamePromise.then(function(model) {
       if(model) {
-         res.render('signup', {title: 'Đăng ký', errorMessage: 'username already exists'});
+         res.render('signup', {title: 'Đăng ký', errorMessage: 'Tài khoản đã tồn tại, phiền bạn chọn một tài khoản khác'});
       } else {
          //****************************************************//
          // MORE VALIDATION GOES HERE(E.G. PASSWORD VALIDATION)
@@ -74,7 +74,7 @@ var signUpPost = function(req, res, next) {
          var password = user.password;
          var hash = bcrypt.hashSync(password);
 
-         var signUpUser = new Model.User({username: user.username, passwd: hash});
+         var signUpUser = new Model.User({username: user.username, passwd: hash, firstname: user.firstname, lastname: user.lastname});
 
          signUpUser.save().then(function(model) {
             // sign in the newly registered user

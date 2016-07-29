@@ -1,28 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-   <head>
-      <title><%= title %></title>
-   </head>
-   <body>
-      <h2>Register Form</h2>
-      <form method="post" action="/signup">
-         <% if(typeof(errorMessage) !== 'undefined') {%>
-         <span><%= errorMessage %></span>
-         <% } %>
-         <p>
-            <label for="username">username</label>
-            <input type="text" name="username" id="username"
-               placeholder="username" required="true"/>
-         </p>
-         <p>
-            <label for="password">password</label>
-            <input type="text" name="password" id="password"
-               placeholder="password" required="true"/>
-         </p>
-         <p>
-            <input type="submit" name="signup" id="signup" value="register"/>
-            <a href="/signin" title="sign in">sign in</a>
-         </p>
-      </form>
-   </body>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Onegai - Nơi hỏi đáp về tiếng Nhật và Nhật bản">
+  <meta name="author" content="Onegai Q&A site">
+  <link rel="shortcut icon" href="img/favicon.ico">
+
+  <title><%= title %></title>
+  <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/oauth.min.css"/>
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="/"><b>Onegai</b> chia sẻ tri thức</a>
+  </div>
+  <div class="login-box-body">
+    <p class="login-box-msg">Welcome thành viên mới</p>
+
+    <form action="/signup" id="login-form" method="post">
+      <% if(typeof(errorMessage) !== 'undefined') { %>
+      <span><%= errorMessage %></span>
+      <% } %>
+      <div class="form-group has-feedback">
+        <input type="text" id="firstname" name="firstname" class="form-control" placeholder="Tên/Firstname" required="true"
+               autofocus="true"/> <span class=" fa fa-universal-access form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Họ/Lastname" autofocus="true"/>
+        <span class=" fa fa-universal-access form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="text" name="username" id="username" class="form-control" placeholder="Tài khoản/Username" required="true"/> <span
+          class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="text" name="password" id="password" class="form-control" placeholder="Mật khẩu/Password" required="true"
+               autofocus="true"/> <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <div class="col-xs-7" style="padding-left: 35px;">
+          <div class="checkbox icheck">
+            <label>
+              <input type="checkbox" id="terms" name="terms" value="yes" checked="checked"/> Đồng ý <a href="#">điều khoản</a>
+            </label>
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-5">
+          <input type="submit" value="Đăng ký" class="btn btn-primary btn-block btn-flat"/></div>
+        <!-- /.col -->
+      </div>
+    </form>
+    <div class="social-auth-links text-center">
+      <p>- - - - - - - - - - - - - - - - - -</p>
+      <a href="/oauth/twitter" class="twitter-button btn btn-block btn-social btn-flat">
+        <i class="fa fa-twitter"></i> Đăng nhập bằng Twitter</a>
+      <a href="/oauth/facebook" class="btn btn-block btn-social btn-facebook btn-flat">
+        <i class="fa fa-facebook"></i> Đăng nhập bằng Facebook</a>
+      <a href="/oauth/google" class="google-button btn btn-block btn-social btn-google btn-flat"><i
+          class="fa fa-google-plus"></i>Đăng nhập bằng Google+</a>
+    </div>
+    <a href="/signin" class="text-center">Đã có tài khoản</a>
+  </div>
+
+</div>
+<script src="vendor/jquery/dist/jquery.min.js"></script>
+</body>
 </html>
