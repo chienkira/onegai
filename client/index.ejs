@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,18 +8,18 @@
   <link rel="shortcut icon" href="img/favicon.ico">
   <title>Onegai | Q&A site</title>
   <!-- Bootstrap core CSS -->
-  <link href="./vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href="./vendor/textAngular/src/textAngular.css" rel="stylesheet">
-  <link href="./vendor/angular-busy/dist/angular-busy.min.css" rel="stylesheet">
+  <link href="vendor/textAngular/src/textAngular.css" rel="stylesheet">
+  <link href="vendor/angular-busy/dist/angular-busy.min.css" rel="stylesheet">
   <!-- Onegai CSS -->
-  <link href="./css/base.css" rel="stylesheet">
-  <link href="./css/app.css" rel="stylesheet">
-  <link href="./css/question.css" rel="stylesheet">
-  <link href="./css/answer.css" rel="stylesheet">
-  <link href="./css/tags.css" rel="stylesheet">
-  <link href="./css/users.css" rel="stylesheet">
-  <link href="./css/responsive.css" rel="stylesheet">
+  <link href="css/base.css" rel="stylesheet">
+  <link href="css/app.css" rel="stylesheet">
+  <link href="css/question.css" rel="stylesheet">
+  <link href="css/answer.css" rel="stylesheet">
+  <link href="css/tags.css" rel="stylesheet">
+  <link href="css/users.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
 </head>
 <body ng-app="onegai">
 <!-- Top bar -->
@@ -27,11 +27,18 @@
   <section class="container clearfix">
     <nav class="header-top-nav">
       <ul>
-        <li><a ui-sref="contact"><i class="fa fa-headphones"></i>Hỗ trợ</a></li>
-        <li><a ui-sref="login"><i class="fa fa-user"></i>Đăng nhập</a></li>
+        <li><a href="/contact"><i class="fa fa-headphones"></i>Hỗ trợ</a></li>
+        <% if(typeof(user) !== 'undefined') {%>
+        <li><a ui-sref="user/"><i class="fa fa-user"></i><%= user.username %></a></li>
         <li>
           <a href="#"><span class="mail-status unread">1 </span><i class="fa fa-inbox"></i></a>
         </li>
+        <% } else { %>
+        <li><a href="/signin"><i class="fa fa-user"></i>Đăng nhập</a></li>
+        <li>
+          <a href="/signin"><span class="mail-status unread"> </span><i class="fa fa-inbox"></i></a>
+        </li>
+        <% } %>
       </ul>
     </nav>
     <div class="header-search">

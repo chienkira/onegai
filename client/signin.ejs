@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Onegai - Nơi hỏi đáp về tiếng Nhật và Nhật bản">
+  <meta name="author" content="Onegai Q&A site">
+  <link rel="shortcut icon" href="img/favicon.ico">
+
+  <title><%= title %></title>
+  <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/oauth.min.css"/>
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="/"><b>Onegai</b> cùng nhau chia sẻ tri thức</a>
+  </div>
+  <div class="login-box-body">
+    <p class="login-box-msg">Chào mừng thành viên</p>
+
+    <form action="/signin" id="login-form" method="post">
+      <% if(typeof(errorMessage) !== 'undefined') { %>
+      <span><%= errorMessage %></span>
+      <% } %>
+      <div class="form-group has-feedback">
+        <input type="text" name="username" id="username" class="form-control" required="true" autofocus="true"
+               placeholder="Username"/>
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password"
+               required="true"/> <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="checkbox icheck">
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <input type="submit" name="signin" id="signin" value="Đăng nhập" class="btn btn-primary btn-block btn-flat"/>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+
+    <div class="social-auth-links text-center">
+      <p>- OR -</p>
+      <a href="/oauth/twitter" class="twitter-button btn btn-block btn-social btn-flat">
+        <i class="fa fa-twitter"></i> Đăng nhập bằng Twitter</a>
+      <a href="/oauth/facebook" class="btn btn-block btn-social btn-facebook btn-flat">
+        <i class="fa fa-facebook"></i> Đăng nhập bằng Facebook</a>
+      <a href="/oauth/google" class="google-button btn btn-block btn-social btn-google btn-flat"><i
+          class="fa fa-google-plus"></i>Đăng nhập bằng Google+</a>
+    </div>
+    <a href="#">Quên mật khẩu</a><br>
+    <a href="/signup" class="text-center">Đăng ký thành viên mới</a>
+  </div>
+
+</div>
+<script src="vendor/jquery/dist/jquery.min.js"></script>
+</body>
+</html>

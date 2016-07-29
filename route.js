@@ -8,24 +8,21 @@ var Model = require('./model');
 
 // index
 var index = function(req, res, next) {
-   if(!req.isAuthenticated()) {
-      res.redirect('/signin');
-   } else {
+    var user = req.user;
+    if(user !== undefined) {
+       user = user.toJSON();
+      res.render('index', {title: 'Trang chủ', user: user});
+    } else {
+      res.render('index', {title: 'Trang chủ'});
+    }
 
-      var user = req.user;
-
-      if(user !== undefined) {
-         user = user.toJSON();
-      }
-      res.render('index', {title: 'Home', user: user});
-   }
 };
 
 // sign in
 // GET
 var signIn = function(req, res, next) {
    if(req.isAuthenticated()) res.redirect('/');
-   res.render('signin', {title: 'Sign In'});
+   res.render('signin', {title: 'Đăng nhập'});
 };
 
 // sign in
@@ -34,15 +31,15 @@ var signInPost = function(req, res, next) {
    passport.authenticate('local', { successRedirect: '/',
                           failureRedirect: '/signin'}, function(err, user, info) {
       if(err) {
-         return res.render('signin', {title: 'Sign In', errorMessage: err.message});
-      } 
+         return res.render('signin', {title: 'Đăng nhập', errorMessage: err.message});
+      }
 
       if(!user) {
-         return res.render('signin', {title: 'Sign In', errorMessage: info.message});
+         return res.render('signin', {title: 'Đăng nhập', errorMessage: info.message});
       }
       return req.logIn(user, function(err) {
          if(err) {
-            return res.render('signin', {title: 'Sign In', errorMessage: err.message});
+            return res.render('signin', {title: 'Đăng nhập', errorMessage: err.message});
          } else {
             return res.redirect('/');
          }
@@ -56,7 +53,7 @@ var signUp = function(req, res, next) {
    if(req.isAuthenticated()) {
       res.redirect('/');
    } else {
-      res.render('signup', {title: 'Sign Up'});
+      res.render('signup', {title: 'Đăng ký'});
    }
 };
 
@@ -69,7 +66,7 @@ var signUpPost = function(req, res, next) {
 
    return usernamePromise.then(function(model) {
       if(model) {
-         res.render('signup', {title: 'signup', errorMessage: 'username already exists'});
+         res.render('signup', {title: 'Đăng ký', errorMessage: 'username already exists'});
       } else {
          //****************************************************//
          // MORE VALIDATION GOES HERE(E.G. PASSWORD VALIDATION)
@@ -82,7 +79,7 @@ var signUpPost = function(req, res, next) {
          signUpUser.save().then(function(model) {
             // sign in the newly registered user
             signInPost(req, res, next);
-         });	
+         });
       }
    });
 };
@@ -100,7 +97,7 @@ var signOut = function(req, res, next) {
 // 404 not found
 var notFound404 = function(req, res, next) {
    res.status(404);
-   res.render('404', {title: '404 Not Found'});
+   res.render('404', {title: 'Xin lỗi Trang này không tồn tại 404'});
 };
 
 // export functions
@@ -108,7 +105,7 @@ var notFound404 = function(req, res, next) {
 // index
 module.exports.index = index;
 
-// sigin in
+// signin in
 // GET
 module.exports.signIn = signIn;
 // POST

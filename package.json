@@ -32,7 +32,17 @@
     "grunt-exec": "~0.4.2",
     "grunt-git-describe": "^2.3.2",
     "load-grunt-config": "^0.8.0-beta.1",
-    "time-grunt": "^0.3.1"
+    "time-grunt": "^0.3.1",
+    "express": "4.x",
+    "body-parser": "*",
+    "cookie-parser": "*",
+    "express-session": "*",
+    "bcrypt-nodejs": "*",
+    "ejs": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "mysql": "*",
+    "bookshelf": "0.5"
   },
   "bugs": {
     "url": "https://github.com/chienkira/onegai/issues"
